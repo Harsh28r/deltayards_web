@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from themetrading.com/html/fresher/demo/dashboard/submit-property.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 07:59:20 GMT -->
+<head>
+	<!--===== Meta Tag =====-->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="Fresher - Real Estate Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="business, property, directory, listing, real estate, Real estate template, realtor, developer, apartment, broker, real estate agency, map, company, agent, rent house">
+	<meta name="author" content="root">
+	<!--CSs Links
+	==================================================================-->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/color.css">
+	<link rel="stylesheet" href="css/color.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="fonts/flaticon.css">
+	<!--====================================================
+	Typography links 
+	Import Google Fonts
+	======================================================-->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  	
+  	<!-- Title -->
+	<title>Fresher - Real Estate Template</title>
+	
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+  
+</head>
+<body oncontextmenu="return true;">
+<!-- Start Back to top
+=========================================================================-->
+<div id="scroll" style="display: none;"><i class="fa fa-angle-up"></i></div>
+<!-- End Back to top
+=========================================================================-->
+<div class="wrapper">
+	<!-- Sidebar Nav Start
+	=========================================================================-->
+    <nav id="sidebar" class="bg-secondary">
+        <div class="sidebar-header">
+            <a href="../index.html"><img src="../images/logo/logo-white.png" alt="image"></a>
+        </div>
+
+        <ul class="list-unstyled components pt-30">
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-object-ungroup"></i> <span>Dashboard</span></a>
+                <ul class="collapse list-unstyled submenu" id="homeSubmenu">
+                    <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li><a href="analytics.html"><i class="fa fa-line-chart"></i> <span>Analytics</span></a></li>
+                    <li><a href="customers.html"><i class="fa fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="message.html"><i class="fa fa-envelope"></i> <span>Message</span></a></li>
+                    <li><a href="comment.html"><i class="fa fa-comments"></i><span>Comment</span></a></li>
+                    <li><a href="review.html"><i class="fa fa-star"></i> <span>Review</span></a></li>
+                    <li><a href="booking-request.html"><i class="fa fa-calendar"></i> <span>Booking Request</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-copy"></i><span>Manage Property</span></a>
+                <ul class="collapse list-unstyled submenu show" id="pageSubmenu">
+                    <li><a href="listing-property.html"><i class="fa fa-list-alt"></i> <span>Listing Property</span></a></li>
+                    <li><a href="favorite-property.html"><i class="fa fa-star-o"></i> <span>Favorite Property</span></a></li>
+                    <li><a href="purchased-property.html"><i class="fa fa-dollar"></i> <span>Purchased Property</span></a></li>
+                    <li><a href="submit-property.html"><i class="fa fa-space-shuttle"></i> <span>Submit Property</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>Account Details</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu2">
+                    <li><a href="personal-info.html"><i class="fa fa-list-alt"></i> <span>Personal Information</span></a></li>
+                    <li><a href="profile-setting.html"><i class="fa fa-cogs"></i> <span>Profile Settings</span></a></li>
+                    <li><a href="payment-invoice.html"><i class="fa fa-file-archive-o"></i> <span>Payment & Invoice</span></a></li>
+                    <li><a href="change-password.html"><i class="fa fa-lock"></i> <span>Change Password</span></a></li>
+                    <li><a href="social-media-setting.html"><i class="fa fa-space-shuttle"></i> <span>Social Media Settings</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>About Item</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu3">
+                    <li><a href="recent-item.html"><i class="fa fa-list-alt"></i> <span>Recent Items</span></a></li>
+                    <li><a href="featured-item.html"><i class="fa fa-star-o"></i> <span>Featured Items</span></a></li>
+                    <li><a href="offers.html"><i class="fa fa-dollar"></i> <span>Special Offers</span></a></li>
+                    <li><a href="tax-info.html"><i class="fa fa-star-o"></i> <span>Item Tax Information</span></a></li>
+                </ul>
+            </li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out"></i> <span>Logout</span></a></li>
+        </ul>
+    </nav>
+	<!-- Sidebar Nav End
+	=========================================================================-->
+
+    <!-- Page Content  -->
+    <div id="content" class="bg-light">
+    	<!-- Top Nav Start
+		=========================================================================-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="py-5 px-15 color-white bg-primary">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mobile ml-auto icon-white">
+                        <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More <i class="fa fa-angle-down"></i></a>
+							<ul class="dropdown-menu shadow"> 
+								<li><a class="dropdown-item" href="#">Option One</a></li> 
+								<li><a class="dropdown-item" href="#">Option Two</a></li>
+								<li><a class="dropdown-item" href="#">Option Three</a></li>
+								<li><a class="dropdown-item" href="#">Option Four</a></li> 
+								<li><a class="dropdown-item" href="#">Option Five</a></li>
+							</ul>
+						</li>
+						<li><button class="btn btn-primary h-100">Submit Property</button></li>
+						<li><a href="#"><i class="fa fa-bell"></i> <sup class="color-primary">(9)</sup></a></li>
+						<li><a href="#"><i class="fa fa-comments"></i> <sup class="color-primary">(18)</sup></a></li>
+                    </ul>
+                    <div class="dashboard-admin py-10">
+						<ul class="nav navbar-nav ml-auto position-relative">
+                            <li class="nav-item dropdown">
+								<div class="admin-nav">
+									<div class="d-table float-left text-right pr-15">
+										<h6 class="admin color-white">George Jr.</h6>
+										<span class="color-primary">Admin</span>
+									</div>
+									<div class="float-left"><img src="images/admin.jpg" alt="admin-image"></div>
+								</div>
+								<ul class="admin-dropdown shadow bg-white py-5 icon-primary"> 
+									<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li> 
+									<li><a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Inbox</a></li>
+									<li><a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting</a></li>
+									<li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+								</ul>
+							</li>
+                        </ul>
+					</div>
+                </div>
+            </div>
+        </nav>
+        <!-- Top Nav End
+		=========================================================================-->
+
+		<!-- Dashboard Content Start
+		=========================================================================-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-7">
+					<div class="dashboard-title mt-15 mb-30">
+						<h2 class="title color-secondary">Submit Property</h2>
+						<p>Submit A New Property</p>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-5">
+					<div class="admin-setting mt-40">
+						<ul>
+							<li><a class="ml-5" href="#"><i class="fa fa-cog"></i></a></li>
+							<li><a href="#"><i class="fa fa-refresh"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Submit Property Start
+				==================================================-->
+						<div class="col-lg-12">
+							<div class="submit-property bg-light">
+								<form class="property-submit-form" action="#" method="post">
+									<div class="property-info bg-white py-40 px-30">
+										<div class="row">
+											<div class="form-group col-lg-6">
+												<label>Property Title</label>
+												<input class="form-control bg-gray" type="text" name="property-title">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Property Type</label>
+												<div class="select-wrapper position-relative">
+													<select class="select form-control bg-gray">
+														<option>Type 1</option>
+														<option>Type 2</option>
+														<option>Type 3</option>
+														<option>Type 4</option>
+														<option>Type 5</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Status</label>
+												<div class="select-wrapper position-relative">
+													<select class="select form-control bg-gray">
+														<option>Status 1</option>
+														<option>Status 2</option>
+														<option>Status 3</option>
+														<option>Status 4</option>
+														<option>Status 5</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Price</label>
+												<input class="form-control bg-gray" type="text" name="price">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Area</label>
+												<input class="form-control bg-gray" type="text" name="area">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Rooms</label>
+												<div class="select-wrapper position-relative">
+													<select class="select form-control bg-gray">
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-lg-12">
+												<label>Property Description</label>
+												<textarea class="form-control bg-gray" rows="7"></textarea>
+											</div>
+											<div class="col-lg-12">
+												<button class="btn btn-primary">Back</button>
+												<button class="btn btn-primary float-right">Next</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="property-location mt-30 bg-white py-40 px-30">
+										<div class="row">
+											<div class="form-group col-lg-6">
+												<label>Address</label>
+												<input class="form-control bg-gray" type="text" name="address">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>County/State</label>
+												<input class="form-control bg-gray" type="text" name="state">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>City</label>
+												<input class="form-control bg-gray" type="text" name="city">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Zip</label>
+												<input class="form-control bg-gray" type="text" name="zip">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Neighborhood</label>
+												<input class="form-control bg-gray" type="text" name="neighborhood">
+											</div>
+											<div class="form-group col-lg-6">
+												<label>Country</label>
+												<div class="select-wrapper position-relative">
+													<select class="select form-control bg-gray">
+														<option>Australia</option>
+														<option>Usa</option>
+														<option>UK</option>
+														<option>Canada</option>
+														<option>Russia</option>
+														<option>Spain</option>
+														<option>Africa</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-lg-12">
+												<label>Location in Map</label>
+												<div id="map" class="canvas" style="height: 400px"></div>
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Latitude (for Google Maps)</label>
+												<input class="form-control bg-gray" type="text" name="latitude">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Longitude (for Google Maps)</label>
+												<input class="form-control bg-gray" type="text" name="longitude">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Google Map Street View</label>
+												<div class="select-wrapper position-relative">
+													<select class="select form-control bg-gray">
+														<option>Street View 1</option>
+														<option>Street View 2</option>
+														<option>Street View 3</option>
+														<option>Street View 4</option>
+														<option>Street View 5</option>
+														<option>Street View 6</option>
+														<option>Street View 7</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<button class="btn btn-primary">Back</button>
+												<button class="btn btn-primary float-right">Next</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="property-info mt-30 bg-white py-40 px-30">
+										<div class="row">
+											<div class="form-group col-lg-4">
+												<label>Property Id</label>
+												<input class="form-control bg-gray" type="text" name="property-id">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Area Size</label>
+												<input class="form-control bg-gray" type="text" name="area-size">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Size Prefix</label>
+												<input class="form-control bg-gray" type="text" name="size-prefix">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Land Area</label>
+												<input class="form-control bg-gray" type="text" name="land-area">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Land Area Size Postfix</label>
+												<input class="form-control bg-gray" type="text" name="land-area-postfix">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Bedrooms</label>
+												<input class="form-control bg-gray" type="text" name="bedrooms">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Bathrooms</label>
+												<input class="form-control bg-gray" type="text" name="bathrooms">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Garages</label>
+												<input class="form-control bg-gray" type="text" name="garages">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Garages Size</label>
+												<input class="form-control bg-gray" type="text" name="garages-size">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>Built Year</label>
+												<input class="form-control bg-gray" type="text" name="built-year">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>video URL</label>
+												<input class="form-control bg-gray" type="text" name="video-link">
+											</div>
+											<div class="form-group col-lg-4">
+												<label>360° Virtual Tour</label>
+												<input class="form-control bg-gray" type="text" name="virtual-tour">
+											</div>
+											<div class="form-group col-lg-12">
+												<label>Amenities</label>
+												<ul class="list-bottom amenities select-option p-0">
+						                            <li>
+						                                <input id="feature-1" class="d-none" type="checkbox">
+						                                <label for="feature-1">Air Condition</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-2" class="d-none" type="checkbox">
+						                                <label for="feature-2">Refrigerator</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-3" class="d-none" type="checkbox">
+						                                <label for="feature-3">TV Cable</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-4" class="d-none" type="checkbox">
+						                                <label for="feature-4">Dryer</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-5" class="d-none" type="checkbox">
+						                                <label for="feature-5">Wifi</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-6" class="d-none" type="checkbox">
+						                                <label for="feature-6">Laundry</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-7" class="d-none" type="checkbox">
+						                                <label for="feature-7">Swimming Pool</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-8" class="d-none" type="checkbox">
+						                                <label for="feature-8">Outdoor Shower</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-9" class="d-none" type="checkbox">
+						                                <label for="feature-9">Barbeque</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-10" class="d-none" type="checkbox">
+						                                <label for="feature-10">Washer</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-11" class="d-none" type="checkbox">
+						                                <label for="feature-11">Sauna</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-12" class="d-none" type="checkbox">
+						                                <label for="feature-12">Microwave</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-13" class="d-none" type="checkbox">
+						                                <label for="feature-13">Gym</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-14" class="d-none" type="checkbox">
+						                                <label for="feature-14">Lawn</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-15" class="d-none" type="checkbox">
+						                                <label for="feature-15">Window Covering</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-16" class="d-none" type="checkbox">
+						                                <label for="feature-16">Home Theater</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-17" class="d-none" type="checkbox">
+						                                <label for="feature-17">Garden</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-18" class="d-none" type="checkbox">
+						                                <label for="feature-18">Fire Protection</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-19" class="d-none" type="checkbox">
+						                                <label for="feature-19">Emergency Exit</label>
+						                            </li>
+						                            <li>
+						                                <input id="feature-20" class="d-none" type="checkbox">
+						                                <label for="feature-20">Security System</label>
+						                            </li>
+						                        </ul>
+						                    </div>
+											<div class="col-lg-12">
+												<button class="btn btn-primary">Back</button>
+												<button class="btn btn-primary float-right">Next</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="property-info property-media mt-30 bg-white py-40 px-30">
+										<div class="row">
+											<div class="form-group col-lg-12">
+												<label>Browse Here</label>
+												<div class="d-flex">
+													<input class="form-control upload-path bg-gray mr-30" type="text" name="upload-path">
+													<input type="file">
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<ul class="attached-photos p-30 bg-gray d-table">
+													<li class="attached-photo">
+														<img src="../images/property/1.jpg" alt="image">
+														<span class="color-white"><i class="fa fa-trash"></i></span>
+													</li>
+													<li class="attached-photo mt-sm-30">
+														<img src="../images/property/2.jpg" alt="image">
+														<span class="color-white"><i class="fa fa-trash"></i></span>
+													</li>
+													<li class="attached-photo mt-md-30">
+														<img src="../images/property/3.jpg" alt="image">
+														<span class="color-white"><i class="fa fa-trash"></i></span>
+													</li>
+													<li class="attached-photo mt-md-30">
+														<img src="../images/property/4.jpg" alt="image">
+														<span class="color-white"><i class="fa fa-trash"></i></span>
+													</li>
+												</ul>
+											</div>
+											<div class="form-group col-lg-12">
+												<div class="drag-drop bg-gray px-30 py-40 text-center mt-15">
+													<span class="fa fa-upload color-primary"></span>
+													<h4 class="inner-title mt-15">Drag & Drop Images Here</h4>
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<button class="btn btn-primary">Back</button>
+												<button class="btn btn-primary float-right">Next</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+				<!-- Submit Property End
+				=========================================================================-->
+			</div>
+		</div>
+    </div>
+</div>
+<div class="copyright py-15 bg-secondary text-center d-table w-100">
+	<div class="row">
+		<div class="col-xl-12">
+			<span class="color-white">Fresher @ 2020. All Rights Reserved.</span>
+		</div>
+	</div>
+</div>
+
+<!-- jquery Links
+==================================================================-->
+  <script src="../js/jquery-v3.4.1.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/wow.js"></script>
+  <script src="js/Chart2.5.0.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVVUxeZqpBLv-jrgsQO1XQ7wvBS9mlRo"></script>
+  <script src="js/map.scripts.js"></script>
+ 	<script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+    	$(document).ready(function(){
+		  $('.admin-nav').click(function(){
+		    $('.admin-dropdown').slideToggle();
+		  });
+		});
+    </script>
+</body>
+
+<!-- Mirrored from themetrading.com/html/fresher/demo/dashboard/submit-property.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 07:59:20 GMT -->
+</html>

@@ -1,0 +1,52 @@
+{% extends 'frontend/base.html'%}
+{% load static %}
+{% block content%}
+<div class="full-row py-5 pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- <h3 class="text-secondary">Join Our Team</h3> -->
+                <center >
+                    <img style="width:300px; height:300px; margin: 0 auto 30px; " src="static/frontend/images/career/join our team.jpeg" class="ls-bg " alt="" />
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="full-row pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-7">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="text-secondary">Current Job Opening:</h5>
+                    </div>
+                </div>
+                <div class="row row-cols-xl-3 row-cols-lg-1 row-cols-md-3 row-cols-1 g-4">
+                    {% if job_desc|length != 0 %}
+                        {% for i in job_desc %}
+                        <div class="col">
+                            <!-- Property Grid -->
+                            <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
+                                <div class="property_text p-4">
+                                    <h5 class="listing-title"><a href="JobDetails?id={{i.unique_id}}">{{i.job_title}}</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col">
+                            <!-- Property Grid -->
+                            <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
+                                <div class="property_text p-4">
+                                    <h5 class="listing-title"><a href="#">No openings currently. </a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

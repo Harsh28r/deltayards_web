@@ -1,0 +1,131 @@
+{% extends 'frontend/base.html'%}
+{% load static %}
+{% block content%}
+<div class="full-row pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 order-md-1">
+                <h4 class="down-line mb-5">Send Message</h4>
+                <div class="form-simple mb-5">
+                    <div id="response"></div>
+                    <form id="frm_contactDemo" action="#" method="post" class="cmxform">
+                        {% csrf_token%}
+                        <input type="text" name="field" id="field_contact" class="field" value="">
+                        <div class="row">
+                            <div class="col-md-6 mb-20">
+                                <label class="mb-2">Full Name:</label>
+                                <input type="text" class="form-control bg-gray mb-2"  name="name" id="name" required>
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                <label class="mb-2">Your Email:</label>
+                                <input type="email" class="form-control bg-gray mb-2" name="email" id="email" required>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                <label class="mb-2">Contact Number:</label>
+                                <input type="text" class="form-control bg-gray mb-2" name="contact_no" id="contact_no" required>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                <label class="mb-2">Message:</label>
+                                <textarea class="form-control bg-gray " name="message" rows="2" id="message" required></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" value="submit" id="btn_contactDemo" name="btn_contact" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function()
+    {
+        $("#btn_contactDemo").click(function(e) 
+        {
+            $('#frm_contactDemo').validate({
+                rules:
+                {
+                    name: 
+                    {
+                        required: true
+                    },
+                    contact_no:
+                    {
+                        required: true,
+                        minlength:10,
+                        maxlength:10,
+                        digits:true
+                    },
+                    email:
+                    {
+                        required:true,
+                        email:true
+                    }
+                },
+                messages:
+                {
+                    name: 
+                    {
+                        required: "Please enter your name"
+                    },
+                    contact_no:
+                    {
+                        required: "Please enter your contact number",
+                        minlength:"Only 10 characters allowed",
+                        maxlength:"Only 10 characters allowed",
+                        digits:"only numbers allowed"
+                    },
+                    email:
+                    {
+                        required:"Please enter your email-id",
+                        email:"wrong email address"
+                    }
+                },
+                submitHandler: function(form) 
+                {
+                    $.ajax(
+                    {
+                        url:"contactInformation",
+                        method:"POST",
+                        data:$(form).serialize(),
+                        success:function(response)
+                        {
+                            if(response.success==1)
+                            {
+                                var validator = $("#frm_contactDemo").validate();
+                                validator.resetForm();
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: response.message
+                                });
+                                
+                            }
+                            else if(response.success==0)
+                            {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: response.message
+                                });
+                            }
+                        },
+                        error:function()
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Something went wrong. Please try again later.'
+                            });
+                        }
+                    });
+                }
+            })
+        });
+    });
+</script>
+{% endblock %}

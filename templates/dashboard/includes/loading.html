@@ -1,0 +1,15 @@
+{% load static %}
+<!-- Loading Modal -->
+<div id="loading-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-sm"> 
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-md-12 text-center">
+                    <div class="loading">	
+                        <p>Loading, Please wait...<br/><img src="{% static 'dashboard/img/loader.gif' %}"/></p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+	</div>
+</div><!-- /.modal -->

@@ -1,0 +1,351 @@
+<!-- TEST MARKER 12345 --> 
+{% extends 'frontend/base.html'%}
+{% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'frontend/slider/css/layerslider.css' %}">
+<link rel="stylesheet" href="{% static ' frontend/slider/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'frontend/css/home.css' %}">
+<style>
+    .photo-style
+    {
+        box-shadow:1px 2px 10px 5px #c0c0c0;
+        /* border:20px solid rgb(255, 255, 255); */
+        border-radius: 4px;
+    }
+    .photo-style img
+    {
+        width:100%;
+    }
+</style>
+{% endblock %}
+{% block content%}
+<div class="full-row p-0 overflow-hidden">
+    <div id="slider" class="overflow-hidden" style=" height:750;width:1519;margin:0 auto;margin-bottom: 0px;">
+        <!--============== Slider Area Start ==============-->
+        <!-- Slide 1-->
+        <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:12000; transition2d:104; kenburnsscale:1.00;">
+            <img width="1920"  src="{% static  'frontend/images/slider/1.png' %}" class="ls-bg" alt="" />
+            <p style="font-size:20px; font-weight:400; top:320px; left:50%; font-family: 'Sen', sans-serif;" class="ls-l ls-hide-phone text-white" data-ls="offsetyin:100%; durationin:1500; delayin:500; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">&nbsp;</p>
+            <p style="font-size:48px; font-weight:700; top:370px; left:50%; font-family: 'Sen', sans-serif;" class="ls-l ls-hide-phone text-white" data-ls="offsetyin:100%; durationin:1500; delayin:1000; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">Welcome to Delta Yards</p>
+            <p style="top:450px; left:50%; text-align:center; font-weight:400; font-style:normal; text-decoration:none; width:650px; font-size:18px; color:#ffffff; line-height:30px; white-space:normal;" class="ls-l ls-hide-phone" data-ls="offsetyin:100%; durationin:1500; delayin:1500; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">Engage with us for end to end property solutions.</p>
+            <!-- <a class="ls-l ls-hide-phone" href="property-listing" target="_self" data-ls="offsetyin:40; delayin:2000; clipin:0 0 100% 0; durationout:400; hover:true; hoverdurationin:300; hoveropacity:1; hoverbgcolor:#222; hovercolor:#aa8453;">
+                <p style="font-weight:500; text-align:center; cursor:pointer; padding-right:35px; padding-left:35px; font-weight: 500; font-size:16px; font-family: 'Sen', sans-serif; line-height:40px; top:550px; left:50%; color:#fff; border-radius:30px; padding-top:10px; padding-bottom:10px; background:#aa8453; white-space:normal;"
+                    class="">Preview Listing</p>
+            </a> -->
+        </div>
+        <!-- Slide 2 -->
+        <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:12000; transition2d:104; kenburnsscale:1.00;">
+            <img width="1920"  src="{% static  'frontend/images/slider/2.png' %}" class="ls-bg" alt="" />
+            <p style="font-size:20px; font-weight:400; top:320px; left:50%; text-align:center; font-family: 'Sen', sans-serif;" class="ls-l ls-hide-phone text-white" data-ls="offsetyin:100%; durationin:1500; delayin:500; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">&nbsp;</p>
+            <p style="font-size:48px; font-weight:700; top:370px; left:50%; text-align:center; font-family: 'Sen', sans-serif;" class="ls-l ls-hide-phone text-white" data-ls="offsetyin:100%; durationin:1500; delayin:1000; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">50+ Branded Partners</p>
+            <p style="top:450px; left:50%; text-align:center; font-weight:400; font-style:normal; text-decoration:none; width:650px; font-size:18px; color:#ffffff; line-height:30px; white-space:normal;" class="ls-l ls-hide-phone" data-ls="offsetyin:100%; durationin:1500; delayin:1500; clipin:0 0 100% 0; durationout:400; parallaxlevel:0;">Delta Yards prides to work with more than 50+ established developers.</p>
+            <!-- <a class="ls-l ls-hide-phone" href="property-listing" target="_self" data-ls="offsetyin:40; delayin:2000; clipin:0 0 100% 0; durationout:400; hover:true; hoverdurationin:300; hoveropacity:1; hoverbgcolor:#222; hovercolor:#aa8453;">
+                <p style="font-weight:500; text-align:center; cursor:pointer; padding-right:35px; padding-left:35px; font-weight: 500; font-size:16px; font-family: 'Sen', sans-serif; line-height:40px; top:550px; left:50%; color:#fff; border-radius:30px; padding-top:10px; padding-bottom:10px; background:#aa8453; white-space:normal;"
+                    class="">Preview Listing</p>
+            </a> -->
+        </div>
+    </div>
+</div>
+<div class="full-row" style="padding-top: 150px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="text-dark">Our mission is to redefine 
+                    buying experience for our 
+                    customers
+                    </h1>
+            </div>
+            <div class="col-lg-6">
+                <div class="py-2">
+                    <p>We advice & help you 
+                        buy your dream property 
+                        be it home, office 
+                        or retail space.
+                        </p>
+                        <ul class="list-style-tick d-flex flex-column my-2">
+                            <li>Choice of best properties in the market </li>
+                            <li>End to end buying advice  </li>
+                            <li>No charges from customers   </li>
+                            <li>Loan assistance & payment structuring advise </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+<div class="full-row p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12"><hr></div>
+        </div>
+    </div>
+</div>
+<div class="full-row">
+    <div class="container">
+        <div class="row row-cols-lg-3 row-cols-1">
+            <div class="col">
+                <div class="d-flex flex-row text-uppercase">
+                    <h1 class="text-primary mb-0 pe-4">1000+</h1>
+                    <p>Crores <br>of Property Transacted</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex flex-row text-uppercase">
+                    <h1 class="text-primary mb-0 pe-4">1M</h1>
+                    <p>Over 1 Million <br>SQ. FT of Property Sold</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex flex-row text-uppercase">
+                    <h1 class="text-primary mb-0 pe-4">100+</h1>
+                    <p>Developer <br>Brand Partnership</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class="full-row bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col position-relative">
+                <span class="box-tab-line h6 text-primary bg-white x-center px-2">Our Developer</span>
+                <h2 class="box-title text-secondary text-center mx-auto mb-4 font-400">Partners</h2>
+                <span class="sub-title text-secondary text-center mx-auto higlight-font mb-5 w-50 w-md-100">Delta yards prides to work with some of the top branded players in the real estate ecosystem.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="owl-carousel partner-slider">
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/511.png' %}" alt="Image not found 511!" height="110px"/></a>
+                    </div>
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/512.png' %}" alt="Image not found 512!"  height="110px" /></a>
+                    </div>
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/513.png' %}" alt="Image not found3!"  height="110px" /></a>
+                    </div>
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/514.png' %}" alt="Image not found4!" height="130px" /></a>
+                    </div>
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/515.png' %}" alt="Image not found5!"  height="90px" width="50px" class="pt-4" /></a>
+                    </div>
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/516.png' %}" alt="Image not found6!"  height="120px" /></a>
+                    </div>
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/517.png' %}" alt="Image not found7!"  height="130px" /></a>
+                    </div>
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/8.jpeg' %}" alt="Image not found8!"  height="110px" /></a>-->
+                    <!--</div>-->
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/9.png' %}" alt="Image not found9!"   height="80px"/></a>-->
+                    <!--</div>-->
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/10.png' %}" alt="Image not found!10"  height="60px" /></a>-->
+                    <!--</div>-->
+                    <div class="item bg-white">
+                        <a href="#"><img src="{% static  'frontend/images/icon/11.png' %}" alt="Image not found11!"  height="80px"/></a>
+                    </div>
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/12.png' %}" alt="Image not found12!"  height="80px" /></a>-->
+                    <!--</div>-->
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/13.jpeg' %}" alt="Image not found13!"  height="80px" /></a>-->
+                    <!--</div>-->
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/14.jpeg' %}" alt="Image not found14!"  height="60px" /></a>-->
+                    <!--</div>-->
+                    <!--<div class="item bg-white">-->
+                    <!--    <a href="#"><img src="{% static  'frontend/images/icon/15.png' %}" alt="Image not found15!"  height="80px" /></a>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="full-row bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col mb-4">
+                <div class="align-items-center d-flex">
+                    <div class="me-auto">
+                        <h2 class="d-table">Recent Properties</h2>
+                    </div>
+                    <a href="property-listing" class="ms-auto btn-link">View All Properties</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="3block-carusel nav-disable owl-carousel">
+                    {% for i in featured_prop %}
+                    <div class="item">
+                        <!-- Property Grid -->
+                        <div class="property-listing-1 property-block bg-white transation-this">
+                            <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                                <div class="cata position-absolute"><span class="sale bg-secondary text-white">{{i.build_status_ready}}</span></div>
+                                <a href="property-details?id={{i.unique_id}}"><img src="media/{{i.prop_img}}" alt="Image Not Found!" height="270px"></a>
+                                <a href="#" class="listing-ctg text-white"><i class="fa-solid fa-building"></i><span>{{i.prop_type}}</span></a>
+                            </div>
+                            <div class="property_text p-4">
+                                {% if i.prop_price|length %}
+                                <span class="listing-price">₹ {{i.prop_price}}</span>
+                                {% else %}
+                                <span class="listing-price">&nbsp;</span>
+                                {% endif %}
+                                <h5 class="listing-title"><a href="property-details?id={{i.unique_id}}">{{i.project_name}}</a></h5>
+                                <span class="listing-location" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;"><i class="fas fa-map-marker-alt"></i> {{i.prop_address}}</span>
+                            </div>
+                            <div class="d-flex align-items-center post-meta mt-2 py-3 px-4 border-top">
+                                <a class="btn btn-primary quick-view" style="margin: 10px;padding: 10px;border-right: 1px solid #e1e1e1;display: inline-block;line-height: inherit;font-weight: 500;" href="#quick-view"><i class="fas fa-comment"></i> Enquiry</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="full-row">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-us-img-wrap photo-style">
+                    <img src="media/our-team/Kishor_vyas.png" alt="About Us Image">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-us-info-wrap">
+                    <div class="section-title-area mb-20">
+                        <span class="tagline-3 mb-3">About Us</span>
+                        <h1 class="mb-3">From the founders desk</h1>
+                        <p style="word-spacing: 10px;text-align: justify;letter-spacing: 1px;margin: 30px 10px;">Real Estate sector in India is poised to touch USD 1 Trillion by 2030. With such growth prospects in the horizon available for the entire industry, we have built Delta Yards, a formidable startup, to serve this huge growth vertical by engaging with reputed developers in their sales & marketing effort & providing professional services in areas of Customer Discovery, Customer Advisory, Deal Negotiation & Sale Closures.
+                        </p>
+                    </div>
+                    <a href="services" class="btn btn-primary text-uppercase">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="slider1" style="height:1080px;margin:0 auto;margin-bottom: 0px; padding-top: 100px; margin-left: 450px;" class="">
+{% for prop in featured_prop %}
+    <!-- Slide 1-->
+    <div class="ls-slide " data-ls="bgsize:cover; bgposition:50% 50%; duration:4000; transition2d:5; kenburnsscale:1.2; parallaxtype:3d; parallaxdistance:4; parallaxrotate:20;">
+        <img width="1920" height="1080" src="{% static 'frontend/slider/images/slider/6.jpg' %}" class="ls-bg" alt="" />
+        <img width="340" height="200" src="{% static 'images/slider/6.jpg' %}" class="ls-tn" alt="" />
+        <div style="width:875px; height:410px; background:#ffffff; border-radius:0px; top:75px; left:20px;" class="ls-l" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:50% 50% -300px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:50% 50% -300px; parallax:true; parallaxlevel:20;"></div>
+        
+        <div style="text-align:center; width:100px; height:35px; line-height: 35px; font-family:'Roboto'; font-size:15px; color:#ffffff; border-radius:0px; top:58px; left:66px;" class="ls-l bg-primary" data-ls="delayin:2000; easingin:easeOutElastic; rotateyin:-300; durationout:400; rotateyout:-400; parallaxlevel:0;">For Sale</div>
+        <p style="font-weight:700;letter-spacing:-0.03em;font-family:Montserrat; font-size:34px; line-height:36px; color:#242424; top:121px; left:66px;" class="ls-l" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:78.2% 416.7% -700px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:78.2% 416.7% -700px; parallax:true; parallaxlevel:35;">{{prop.project_name}}</p>
+        <!-- <p style="font-weight:700; letter-spacing:-0.03em;font-family:Montserrat; font-size:24px; line-height:36px; top:177px; left:66px;" class="color-primary ls-l" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:270.5% 275% -600px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:270.5% 275% -600px; parallax:true; parallaxlevel:30;">₹ {{prop.prop_price}}</p> -->
+        <p style="font-weight:400;width:310px; font-family:Roboto; font-size:14px; line-height:24px; color:#666666; top:235px; left:69px; white-space:normal;" class="ls-l txtOverflow" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:124.7% 32.5% -500px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:124.7% 32.5% -500px; parallax:true; parallaxlevel:25;">{{prop.prop_about}}</p>
+        <a href="property-details?id={{prop.unique_id}}" style="font-weight:400;cursor:pointer; letter-spacing: 1px; padding-right:30px; padding-left:30px; font-family:Montserrat; font-size:16px; line-height:50px; border-radius:0px; top:385px; left:66px;" class="btn-primary ls-l" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:199.2% -244.4% -600px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:199.2% -244.4% -600px; hover:true; hoverdurationin:300; hoveropacity:1; parallax:true; parallaxlevel:30;">View Details</a>
+        <img width="618" height="304" src="media/{{prop.prop_img}}" class="ls-l" alt="" style="top:205px; left:374px;" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:13.2% 24.3% -1000px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:13.2% 24.3% -1000px; parallax:true; parallaxlevel:50;">
+        <a class="ls-l" href="#" target="_self" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:-185.1% 134.1% -1400px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:-185.1% 134.1% -1400px; hover:true; hoveropacity:1; hoverscalex:0.95; hoverscaley:0.95; parallax:true; parallaxlevel:70;">
+            <img width="185" height="185" src="media/{{prop.prop_imgs.0}}" class=" ls-imagelightbox" alt="" style="border-radius:50%; top:31px; left:798px;">
+        </a>
+        <a class="ls-l" href="#" target="_self" data-ls="offsetxin:-150; durationin:2000; easingin:easeOutExpo; rotateyin:-30; transformoriginin:-149.2% 170.4% -1200px; offsetxout:100; durationout:800; easingout:easeInExpo; rotateyout:30; transformoriginout:-149.2% 170.4% -1200px; hover:true; hoveropacity:1; hoverscalex:0.95; hoverscaley:0.95; parallax:true; parallaxlevel:60;">
+            <img width="125" height="125" src="media/{{prop.prop_imgs.1}}" class=" ls-imagelightbox" alt="" style="border-radius:50%; top:66px; left:642px;">
+        </a>
+        <div width="800" height="173" class="ls-l ls-hide-phone ls-hide-tablet" alt="" style="width:283px; top:503px; left:65px;color:white;" data-ls="offsetyin:-100; durationin:1500; delayin:1000; easingin:easeOutExpo; durationout:400; easingout:easeInOutQuad; parallax:true; parallaxlevel:9;">
+            <i class="fas fa-bed fnt"></i>&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <i class="fa-solid fa-fire-burner fnt"></i> Yes&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bath fnt"></i>&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<b class="fnt">SQFT</b>&nbsp;&nbsp;200</span>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="full-row pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col mb-4">
+                <div class="align-items-center d-flex">
+                    <div class="me-auto">
+                        <h2 class="d-table">Enquiry Form</h2>
+                        <span class="sub-title text-secondary text-center higlight-font w-md-100">We are just a call away or a message away! Delta Yards would love to cater to your needs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 order-md-1"></div>
+            <div class="col-md-6 order-md-1">
+                <div class="form-simple mb-5">
+                    <div id="response"></div>
+                    <form id="frm_contact" action="#" method="post" class="cmxform">
+                        {% csrf_token%}
+                        <input type="text" name="field" id="field_contact" class="field" value="">
+                        <div class="row">
+                            <div class="col-md-6 mb-20">
+                                <label class="mb-2">Full Name:</label>
+                                <input type="text" class="form-control bg-gray mb-2"  name="name" id="name" required>
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                <label class="mb-2">Your Email:</label>
+                                <input type="email" class="form-control bg-gray mb-2" name="email" id="email" required>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                <label class="mb-2">Contact Number:</label>
+                                <input type="text" class="form-control bg-gray mb-2" name="contact_no" id="contact_no" required>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                <label class="mb-2">Message:</label>
+                                <textarea class="form-control bg-gray " name="message" rows="2"  id="message" required></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" value="submit" id="btn_contact" name="btn_contact" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<script>
+    function onHover()
+    {
+        $("#menuImg").attr('src', "{% static 'frontend/images/agents/Kishor_Vyas.jpg' %}");
+    }
+
+    function offHover()
+    {
+        $("#menuImg").attr('src', "{% static 'frontend/images/agents/Kishor_Vyas_2.jpg' %}");
+    }
+            
+    function onHover1()
+    {
+        $("#menuImg1").attr('src', "{% static 'frontend/images/agents/Naidu_Sir.jpg' %}");
+    }
+    function offHover1()
+    {
+        $("#menuImg1").attr('src', "{% static 'frontend/images/agents/Naidu _Sir(1).jpg' %}");
+    }
+    
+            
+        function onHover2()
+    {
+        $("#menuImg2").attr('src', "{% static 'frontend/images/agents/Munawar_Sir.jpg' %}");
+    }
+    function offHover2()
+    {
+        $("#menuImg2").attr('src', "{% static 'frontend/images/agents/Munawar_ Sir(1).jpg' %}");
+    }
+            
+    function onHover3()
+    {
+        
+        $("#menuImg3").attr('src', "{% static 'frontend/images/agents/Pransht _Jha.jpg' %}");
+    }
+    
+    function offHover3()
+    {
+        $("#menuImg3").attr('src', "{% static 'frontend/images/agents/Prashant.jpg' %}");
+    }
+</script>
+{% endblock %}

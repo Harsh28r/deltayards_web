@@ -1,0 +1,457 @@
+{% load static %}
+<script src="{% static  'frontend/js/jquery.min.js' %}"></script>
+<script>
+    $(document).load(function() {
+        your_lightbox_trigger_function();
+    });
+</script>
+<!-- <link rel="stylesheet" href="{% static  'frontend/mklb/css/mklb.css' %}"> -->
+<script defer src="{% static  'frontend/mklb/js/mklb.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script type="module">
+    import { Fancybox } from "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.esm.js";
+</script>
+<script>
+    window.document.onkeydown = function(e) {
+        if (!e) {
+            e = event;
+        }
+        if (e.keyCode == 27) {
+            lightbox_close();
+        }
+        }
+    
+    window.onload =function lightbox_open() {
+        var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+        window.scrollTo(0, 0);
+        document.getElementById('light').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+        lightBoxVideo.play();
+        
+    }
+    
+    function lightbox_close() {
+        var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+        document.getElementById('light').style.display = 'none';
+        document.getElementById('fade').style.display = 'none';
+        lightBoxVideo.pause();
+    }
+</script>
+
+<script src="{% static  'frontend/js/greensock.js' %}"></script>
+<script src="{% static  'frontend/js/layerslider.transitions.js' %}"></script>
+<script src="{% static  'frontend/js/layerslider.kreaturamedia.jquery.js' %}"></script>
+<script src="{% static  'frontend/js/popper.min.js' %}"></script>
+<script src="{% static  'frontend/js/bootstrap.min.js' %}"></script>
+<script src="{% static  'frontend/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static  'frontend/js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static  'frontend/js/owl.js' %}"></script>
+<script src="{% static  'frontend/js/range/tmpl.js' %}"></script>
+<script src="{% static  'frontend/js/range/jquery.dependClass.js' %}"></script>
+<script src="{% static  'frontend/js/range/draggable.js' %}"></script>
+<script src="{% static  'frontend/js/range/jquery.slider.js' %}"></script>
+<script src="{% static  'frontend/js/wow.js' %}"></script>
+<script src="{% static  'frontend/js/mixitup.min.js' %}"></script>
+<script src="{% static  'frontend/js/paraxify.js' %}"></script>
+<script src="{% static  'frontend/js/custom.js' %}"></script>
+<script src="{% static  'frontend/js/greensock.js' %}"></script>
+<script>
+    $('#slider').layerSlider({
+        sliderVersion: '6.0.0',
+        type: 'fullwidth',
+        responsiveUnder: 0,
+        maxRatio: 1,
+        slideBGSize: 'auto',
+        hideUnder: 0,
+        hideOver: 100000,
+        skin: 'outline',
+        fitScreenWidth: true,
+        fullSizeMode: 'fitheight',
+        navButtons: false,
+        navStartStop: false,
+        height:750,
+        skinsPath: 'assets/skins/'
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#slider1').layerSlider({
+            sliderVersion: '6.0.0',
+            type: 'fullwidth',
+            responsiveUnder: 0,
+            maxRatio: 1,
+            hideUnder: 0,
+            hideOver: 100000,
+            pauseOnHover: 'disabled',
+            skin: 'outline',
+            showBarTimer: false,
+            showCircleTimer: false,
+            sliderFadeInDuration: 800,
+            tnContainerWidth: '100%',
+            tnWidth: 170,
+            tnHeight: 100,
+            skinsPath: 'images/slider/skins/',
+            height: 600,
+            width: 1000
+        });
+
+        $('#scroll').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1000);
+        });
+
+    });
+</script>    
+<script>
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+            return false;
+        }
+
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+            return false;
+        }      
+    }
+
+</script>
+<script>
+    $('#single-property').layerSlider({
+        sliderVersion: '6.5.0b2',
+        type: 'popup',
+        pauseOnHover: 'disabled',
+        skin: 'photogallery',
+        globalBGSize: 'cover',
+        navStartStop: false,
+        hoverBottomNav: true,
+        showCircleTimer: false,
+        thumbnailNavigation: 'always',
+        tnContainerWidth: '100%',
+        tnHeight: 70,
+        popupShowOnTimeout: 1,
+        popupShowOnce: false,
+        popupCloseButtonStyle: 'background: rgba(0,0,0,.5); border-radius: 2px; border: 0; left: auto; right: 10px;',
+        popupResetOnClose: 'disabled',
+        popupDistanceLeft: 20,
+        popupDistanceRight: 20,
+        popupDistanceTop: 20,
+        popupDistanceBottom: 20,
+        popupDurationIn: 750,
+        popupDelayIn: 500,
+        popupTransitionIn: 'scalefromtop',
+        popupTransitionOut: 'scaletobottom',
+        skinsPath: 'assets/skins/'
+    });
+
+    // Statistic
+    if (document.querySelector('#mychart') !== null) {
+        var ctx = document.getElementById("mychart").getContext('2d');
+
+        // Data with datasets options
+        var data = {
+            type: 'line',
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+            datasets: [{
+                label: 'Growth',
+                fill: true,
+                backgroundColor: "#def7e0",
+                borderColor: "#17c788",
+                data: [0, 150, 450, 400, 480, 630, 580, 500, 530, 400, 430, 600, 400],
+            }]
+        }
+
+        // Chart declaration with some options:
+        var mychart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+        });
+    }
+
+    //Doughnut and Pie
+    if (document.querySelector('#mychart-2') !== null) {
+        var ctx2 = document.getElementById("mychart-2").getContext('2d');
+
+        // Data with datasets options
+        var data2 = {
+            type: 'doughnut',
+            labels: ['Desktop', 'Tablet', 'Mobile'],
+            datasets: [{
+                data: [10, 20, 30],
+                backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
+            }],
+
+        };
+
+        // For a pie chart
+        var myPieChart = new Chart(ctx2, {
+            type: 'pie',
+            data: data2,
+        });
+        // And for a doughnut chart
+        var myDoughnutChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: data2,
+        });
+    }
+</script>
+<script type="text/javascript" src="{% static 'dashboard/js/validation/jquery.validate.min.js' %}"></script>
+<script src="{% static 'dashboard/js/validation/jquery.form.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'dashboard/js/validation/sweetalert/sweetalert.css' %}">
+<script src="{% static 'dashboard/js/validation/sweetalert/sweetalert.min.js' %}" type="text/javascript"></script>
+<script>
+    $(document).ready(function()
+    {
+        $("#btn_contact").click(function(e) 
+        {
+            $('#frm_contact').validate({
+                rules:
+				{
+					name: 
+					{
+						required: true
+					},
+                    contact_no:
+					{
+						required:true,
+						minlength:10,
+						maxlength:10,
+						digits:true
+					},
+                    email:
+					{
+                        required:true,
+						email:true
+					},
+                    message:
+					{
+						required:true,
+                        minlength:20,
+						maxlength:200,
+					}
+                },
+                messages:
+				{
+					name: 
+					{
+						required: "Please enter your name"
+					},
+                    contact_no:
+					{
+						required: "Please enter 10 digits mobile number",
+						minlength:"Only 10 characters allowed",
+						maxlength:"Only 10 characters allowed",
+						digits:"Only numbers allowed"
+					},
+                    email:
+					{
+                        required:"Please enter a valid email address",
+						email:"Please enter a valid email address"
+					},
+                    message:
+					{
+						required:"Please write your message",
+					}
+                },
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        type:"POST",
+                        data: $(form).serialize(),
+                        url:"contactEnquiry",
+                        success: function(response) {
+                            if(response.success==1)
+                            {
+                                $("#response").html('<div class="alert alert-success alert-dismissible fade show" role="alert">\
+                                    <strong>Success</strong> '+response.message+'\
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                </div>')
+                                setTimeout(function(){ $("#response").html(''); }, 5000);
+                                var validator = $("#frm_contact").validate();
+                                validator.resetForm();
+                            }
+                            else if(response.success==0)
+                            {
+                                $("#response").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\
+                                    <strong>Error</strong> '+response.message+'\
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                </div>');
+                                setTimeout(function(){ $("#response").html(''); }, 5000);
+                            }
+                        },
+                        error: function() {
+                            $("#response").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\
+                                <strong>Error</strong> Something went wrong. Please try again later.\
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                            </div>');
+                            setTimeout(function(){ $("#response").html(''); }, 5000);
+                        }
+                    })
+                }
+            })
+        });
+        $("#btn_enquiry").click(function(e) 
+        {
+            $('#frm_enquiry').validate({
+                rules:
+				{
+					name: 
+					{
+						required: true
+					},
+                    contact_no:
+					{
+						required:true,
+						minlength:10,
+						maxlength:10,
+						digits:true
+					},
+                    email:
+					{
+                        required:true,
+						email:true
+					},
+                    message:
+					{
+						required:true,
+                        minlength:20,
+						maxlength:200,
+					}
+                },
+                messages:
+				{
+					name: 
+					{
+						required: "Please enter your name"
+					},
+                    contact_no:
+					{
+						required: "Please enter 10 digits mobile number",
+						minlength:"Only 10 characters allowed",
+						maxlength:"Only 10 characters allowed",
+						digits:"Only numbers allowed"
+					},
+                    email:
+					{
+                        required:"Please enter a valid email address",
+						email:"Please enter a valid email address"
+					},
+                    message:
+					{
+						required:"Please write your message",
+					}
+                },
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        type:"POST",
+                        data: $(form).serialize(),
+                        url:"propertyEnquiry",
+                        success: function(response) {
+                            if(response.success==1)
+                            {
+                                swal({title:"Success",text:response.message,type:"success"});
+                                $('body').removeClass('modal-open');
+                                $('body').css('padding-right', '0');
+                                $('.quick-view-modal').removeClass('show');
+                                $('.quick-view-modal').hide();
+                                var validator = $("#frm_enquiry").validate();
+                                validator.resetForm();
+                            }
+                            else if(response.success==0)
+                            {
+                                $("#res").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\
+                                    <strong>Error</strong> '+response.message+'\
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                </div>');
+                                setTimeout(function(){ $("#res").html(''); }, 5000);
+                            }
+                        },
+                        error: function() {
+                            $("#res").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\
+                                <strong>Error</strong> Something went wrong. Please try again later.\
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                            </div>');
+                            setTimeout(function(){ $("#res").html(''); }, 5000);
+                        }
+                    })
+                }
+            })
+        });
+        
+        $("#btn_apply").click(function(e) 
+        {
+            $('#frm_apply').validate({
+                rules:
+				{
+					name: 
+					{
+						required: true
+					},
+                    number:
+					{
+						required:true,
+						minlength:10,
+						maxlength:10,
+						digits:true
+					},
+                    email:
+					{
+                        required:true,
+						email:true
+					},
+                    city: 
+					{
+						required: true
+					},
+                    pdf_file:
+                    {
+                        required: true
+                    }
+                },
+                
+                submitHandler: function(form) {
+                    
+                    $(form).ajaxSubmit({
+                        type:"POST",
+                        data: $(form).serialize(),
+                        url:"jobApply",
+                        success: function(response) {
+                            if(response.success==1)
+                            {
+                                swal({title:"Success",text:response.message,type:"success"});
+                                $('body').removeClass('modal-open');
+                                $('body').css('padding-right', '0');
+                                $('.quick-view-modal').removeClass('show');
+                                $('.quick-view-modal').hide();
+                                var validator = $("#frm_apply").validate();
+                                validator.resetForm();
+                            }
+                            else if(response.success==0)
+                            {
+                                $("#res_").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\
+                                    <strong>Error</strong> '+response.message+'\
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                                </div>');
+                                setTimeout(function(){ $("#res_").html(''); }, 5000);
+                            }
+                        },
+                        error: function() {
+                            $("#res_").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">\
+                                <strong>Error</strong> Something went wrong. Please try again later.\
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>\
+                            </div>');
+                            setTimeout(function(){ $("#res_").html(''); }, 5000);
+                        }
+                    })
+                }
+            })
+        });
+    });
+</script>

@@ -1,0 +1,120 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Dashboard"}}{% endblock %}
+
+{% block cntrl %}{% block cntrl-id %}{% endblock %}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Dashboard"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}{% endblock %}
+
+{% block content %}
+<div class="row">
+	{% if request.session.role == 1 or request.session.role == 2  %}
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-primary">
+			<div class="inner">
+				<h3>Employees</h3>
+				<p>View all employee list</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-users text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="employee" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+	<!-- <div class="col-xl-3 col-12">
+		<div class="small-box bg-warning">
+			<div class="inner">
+				<h3>Bank</h3>
+				<p>View all bank list</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-bank text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="bank" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div> -->
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-success">
+			<div class="inner">
+				<h3>Add Property</h3>
+				<p>Add new property</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-file-text-o text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="add-property" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-info">
+			<div class="inner">
+				<h3>Properties</h3>
+				<p>View all Property list</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-building text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="property" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+	{% endif %}
+	{% if request.session.role == 3 %}
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-primary">
+			<div class="inner">
+				<h3>Leads</h3>
+				<p>View all assigned leads list</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-users text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="lead" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+	{% endif %}
+	{% if request.session.role == 4 %}
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-primary">
+			<div class="inner">
+				<h3>Leads</h3>
+				<p>View all assigned leads list</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-users text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="assignedLead" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+	{% endif %}
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-danger">
+			<div class="inner">
+				<h3>Profile</h3>
+				<p>View user Details</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-list text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="profile" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+	<div class="col-xl-3 col-12">
+		<div class="small-box bg-warning">
+			<div class="inner">
+				<h3>Password</h3>
+				<p>Change your password</p>
+			</div>
+			<div class="icon">
+				<span class="fa fa-calendar text-white"><span class="path1"></span><span class="path2"></span></span>
+			</div>
+			<a href="profile" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extracontent %}{% endblock %}

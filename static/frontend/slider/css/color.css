@@ -1,0 +1,342 @@
+body{
+	color: #666666;
+}
+/* Text Color Css
+================================================================*/
+.color-primary, .icon-primary i, .btn-more:hover,
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-item .nav-link:hover,
+.navbar-light .navbar-nav .nav-item .nav-link:focus,
+.dropdown-menu .dropdown-item:hover, .dropdown-menu li.active .dropdown-item,
+.header-four .navbar .navbar-nav .nav-item .search-field span:hover,
+.navbar-light .navbar-nav .nav-item.active .nav-link,
+.burger-nav li.active .dropdown-item,
+.burger-nav li .dropdown-item:hover,
+.about-us .inner-title a:hover, .property-content a:hover,
+.service-info a:hover, .team-item a:hover, 
+.quick-links a:hover, .blog-info .inner-title a:hover,
+.list-arrow-right li:before, .thum-map-content a:hover,
+.gallery-img a:hover, .breadcrumb a:hover,
+.breadcrumb-item+.breadcrumb-item::before,
+.blog-sidebar a:hover, .list-sidebar a:hover,
+.faq-ans a:hover, .btn-show-pass:hover,
+.form-list a:hover, .social-media-1 li a:hover,
+.copyright a:hover, .service-sidebar .widget-catogory a:hover,
+.price-range #debt-amount-slider input:checked + label::before,
+.navbar .navbar-nav .nav-item .search-field:hover,
+.custom-radio input[type="radio"]:checked~.text,
+.hover-secondery-primary a:hover,
+.social-media-3 a:hover,
+.post-title:hover,
+.header-five .search-field i.fa:hover,
+.admin-info li a:hover,
+.hover-white-primary a:hover,
+.br-widget > a.br-selected,
+.br-widget > a.br-active,
+.comment-content .user-rating li.active,
+.btn-link:hover,
+.rating i, .language .active{
+	color: #fd9834 !important;
+}
+.header-seven .navbar-light .navbar-nav .nav-link,
+.color-secondary, .hover-secondery-primary a, .icon-secondary i, 
+.header-one .navbar-nav .nav-link,
+.page-link, .contact-box label, 
+.accordion-style-one .card-header button:after,
+.navbar .navbar-nav .nav-item .search-field,
+.navbar-light .navbar-nav .nav-link,
+.post-title,
+.hover-white-secondery a:hover,
+.post-love a:hover,
+.footer-one .widget-contact li span,
+.top-header-info li span,
+.color-secondary-a a,
+.adbanced-form-two .custom-radio .text,
+.header-six .navbar-light .navbar-nav .nav-link,
+.btn-secondery:hover,
+.form-banner .select-wrapper:after,
+.btn-link,
+.contact-info li strong,
+.header-seven .admin-info li a:hover{
+	color: #242424 !important;
+}
+.header-seven .navbar-light .navbar-nav .nav-link:hover,
+.header-seven .navbar-light .navbar-nav .nav-item .nav-link:focus,
+.color-white, .color-white-a a,a.btn-round,
+.icon-white i, .bg-primary .btn-more:hover,
+.owl-nav button span, .page-link.active, .page-link:hover,
+.social-media-2 a:hover, .accordion [aria-expanded="true"],
+.select-option li input[type="checkbox"]:checked + label::before,
+.news-letter button:hover, .flicker-img a:before,
+.header-four .navbar-light .navbar-nav .nav-link,
+.header-four .navbar .navbar-nav .nav-item .search-field,
+.header-five .navbar-light .navbar-nav .nav-link,
+.header-five .navbar .navbar-nav .nav-item .search-field,
+.header-seven .navbar .navbar-nav .nav-item .search-field:hover,
+.formicon .checkbox_collapse:after,
+.custom-radio .text,
+.hover-white-secondery a,
+.color-hover-white a:hover,
+.post-love a,
+.header-five .search-field i.fa,
+.admin-info li a,
+.hover-white-primary a,
+.btn-secondery,
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link:hover,
+a.btn-round:hover,
+.btn-white:hover,
+#scroll{
+	color: #ffffff !important;
+}
+.color-dark{
+	color: #333333 !important;
+}
+.color-dark-a a{
+	color: #343a40
+}
+.color-gray,
+.icon-gray i,
+.color-gray-a a,
+.social-media-3 li a,
+.top-header-info li,
+.jslider .jslider-label{
+	color: #666666 !important;
+}
+.color-gray-light, .color-gray-light-a a,
+.select option, .breadcrumb-item.active,
+.br-widget > a,
+.comment-content .user-rating li.deactive{
+	color: #cacaca !important;
+}
+select, select:focus{
+	color: #cacaca;
+}
+[type="range"]{
+	background: #000
+}
+.login-form .form-control:focus{
+	background-color: transparent;
+}
+/* Background Color Css
+================================================================*/
+.bg-primary, .line-primary:after,.line-right-primary:after,
+.line-2-primary:before, .line-2-primary:after,
+.page-link.active,
+.btn-primary, .btn-white:hover, #scroll:hover,
+.owl-nav button:hover,
+.social-media-2 a:hover, .progress-bar:before, .progress-bar,
+.owl-dot.active, .line-bottom:before, .ball-scale-multiple div,
+.property-cost li, #gaery-boxll::-webkit-scrollr-trackba,
+#gallery-box::-webkit-scrollbar-thumb:hover,
+.accordion [aria-expanded="true"], .news-letter button:hover,
+.invoice-list-table thead th:nth-child(odd),
+.faq-item .faq-icon, .data-placeholder:before,
+.price-range #debt-amount-slider #debt-amount-pos,
+.select-option li input[type="checkbox"]:checked + label::before,
+.bg-secondary .owl-dots button.active,
+.jslider .jslider-bg .v,
+.jslider .jslider-pointer,
+.custom-radio .design:before,
+.agencies-content .number,
+.round-shape:before,
+.text-thumbnail:hover,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link:hover,
+a.btn-round:hover, .navbar button span,
+a.video-popup,
+a.bg-primary:focus,
+a.bg-primary:hover,
+button.bg-primary:focus,
+button.bg-primary:hover,
+.experience:before,
+.experience:after,
+.years,
+.dotted:before,
+::-webkit-scrollbar-thumb,
+.header-fixed.navside-view{
+	background-color: #fd9834 !important;
+}
+.bg-secondary, .btn-secondary, 
+.owl-nav button, .owl-dots button,
+.property-cost li+li, a.video-popup:hover,
+#gallery-box::-webkit-scrollbar-thumb,
+.invoice-list-table thead th:nth-child(even),
+.formicon .checkbox_collapse:after,
+.hover-option li,
+.text-thumbnail:hover span,
+.btn-secondery,
+.nav-tabs .nav-item,
+a.btn-round,
+.page-link:hover,
+#scroll,
+.nav-on-banner.header-fixed{
+	background-color: #242424 !important;
+}
+.bg-white, .btn-white, header.header-fixed,
+.invoice-list-table tbody td:nth-child(odd),
+.items-list tr td:nth-child(odd),
+.btn-secondery:hover,
+.toggle-btn[aria-expanded="true"] span:nth-child(2){
+	background-color: #ffffff !important
+}
+.bg-secondary .owl-dots button,
+#hamburger-button > span{
+	background-color: #ffffff !important
+}
+.bg-gray,
+.news-letter .form-control,
+.jslider .jslider-bg .r, .jslider .jslider-bg .l,
+.adbanced-form-two .form-control,
+.top-filter .form-control{
+	background-color: #f5f5f5
+}
+
+.bg-gray-light,
+.form-control:focus{
+	background-color: #ebeef3;
+}
+.bg-dark, .select-wrapper option, .property-info li i,
+#gallery-img{
+	background-color: #333333 !important;
+}
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:hover,
+.btn-primary:focus{
+	border-color: #fd9834;
+	filter: brightness(110%);
+}
+.btn-secondary:hover{
+	background-color: transparent !important;
+	color: #242424;
+	border-color: #242424;
+}
+/* RGB Color Css
+================================================================*/
+.overlay-secondary:before,
+.banner-1:before,
+.team-info:before,
+.flicker-img a:before{
+	background-color: rgba(36, 36, 36, 0.9);
+}
+.overlay-secondary-4:before{
+	background-color: rgba(36, 36, 36, 0.4);
+}
+.overlay-secondary-6:before{
+	background-color: rgba(36, 36, 36, 0.6);
+}
+.overlay-primary:before{
+	background-color: rgba(152, 203, 43, .7);
+}
+.overlay-white:before{
+	background-color: rgb(255, 255, 255, .9);
+}
+.overlay-black:before{
+	background-color: rgba(0, 0, 0, .7);
+}
+.overlay-half-secondery:before{
+	background-color: rgba(36, 36, 36, 0.9);
+}
+
+/* Border Color Css
+================================================================*/
+.border-primary{
+	border-color: #fd9834 !important;
+}
+hr,
+.serial-no:before,
+.service-icon:before,
+.team-item, .property-admin img,
+.invoice-list-table tbody tr,
+.border-box:nth-child(odd),
+.border-box:nth-child(1),
+.border-box:nth-child(2),
+.partners-logo img,
+.select-option li label::before,
+.items-list tr,
+.border-top-1-gray,
+.border-bottom-1-gray{
+	border-color: #cacaca;
+}
+.property-cost li:last-child:before{
+	border-right-color: #242424;
+	border-bottom-color: #242424
+}
+.adbanced-form-two .custom-radio .design{
+	border-color: #242424
+}
+.social-media-1 li,
+.border-bottom-1,
+.social-media-2 li a,
+.border-bottom-1-dark{
+	border-color: #343a40;
+}
+.border-right-1,
+.admin-info li{
+	border-right-color: #cacaca;
+}
+.social-media-2 a:hover, .personal-video,
+.price-range #debt-amount-slider input:checked + label::after,
+.custom-radio input[type="radio"]:checked~.design,
+.social-media-2.border-white li a:hover{
+	border-color: #fd9834;
+}
+.border-top-1-light-gray{
+	border-color: #dee2e6
+}
+.custom-radio .design,
+.social-media-2.border-white li a,
+.header-transparent .social-media-1 li,
+.header-transparent .border-bottom-1-dark,
+.language li, .language li:first-child{
+	border-color: #fff;
+}
+
+.hexagon, .hexagon:after {
+  border-left-color: #fd9834;
+}
+.hexagon, .hexagon:before {
+  border-right-color: #fd9834;
+}
+.hexagon:before {
+  border-top-color: #fd9834;
+}
+.hexagon:after {
+  border-bottom-color: #fd9834;
+}
+.box-shadow-gray{
+	box-shadow: 0px 0px 15px 4px rgb(245, 245, 245, 0.1);
+}
+.header-fixed{
+    box-shadow: 0 2px 10px -1px rgba(87, 97, 100, 0.35);
+}
+/*
+// Medium devices (tablets, less than 992px)
+==============================================================*/
+@media (max-width: 991.98px){
+	.header-four, .dropdown-menu{
+		background-color: #242424
+	}
+	.dropdown-menu li.active .dropdown-item,
+	.dropdown-menu .dropdown-item:hover{
+		background-color: transparent !important;
+		color: #fd9834 !important
+	}
+	.property-img{
+		background-color: #fd9834;
+	}
+	.dropdown-item{
+		color: #a9a9a9;
+	}
+	.header-seven .dropdown-menu li.active .dropdown-item,
+	.header-seven .dropdown-menu li .dropdown-item:hover,
+	.header-six .dropdown-item{
+		color: #242424 !important;
+	}
+}
+@media (max-width: 767.98px){
+.home-map .adbanced-form-two{
+	background-color: #242424
+}
+}

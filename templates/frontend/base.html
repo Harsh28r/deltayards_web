@@ -1,0 +1,137 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <!-- Meta Tag -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Uniland - Real Estate HTML5 Template">
+        <meta name="keywords" content="real estate, property, property search, agent, apartments, booking, business, idx, housing, real estate agency, rental">
+        <meta name="author" content="unicoder">
+        <title>Delta Yard</title>
+        <base href="/">
+        {% include "frontend/global-css.html" %}
+        {% block extracss %}{% endblock %}
+    </head>
+    <body>
+        {% include "frontend/header.html" %}
+        <div id="page_wrapper" class="bg-light">
+            {% block content %}{% endblock %}
+            <div class="overlay-dark modal fade quick-view-modal" id="quick-view">
+                <div class="modal-dialog modal-dialog-centered modal-md">
+                    <div class="modal-content">
+                        <div class="close view-close">
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+                        <div class="modal-body property-block summary p-3">
+                            <div class="row">
+                                <div class="col mb-4">
+                                    <div class="align-items-center d-flex">
+                                        <div class="me-auto">
+                                            <h2 class="d-table">Enquiry Form</h2>
+                                            <span class="sub-title text-secondary text-center higlight-font w-md-100">We are just a call away or a message away! Delta Yards would love to cater to your needs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-xl-1 row-cols-1">
+                                <div class="col">
+                                    <div class="form-simple mb-5">
+                                        <div id="res"></div>
+                                        <form id="frm_enquiry" action="#" method="post" class="cmxform">
+                                            {% csrf_token%}
+                                            <input type="text" name="field" id="field_contact" class="field" value="">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-20">
+                                                    <label class="mb-2">Full Name:</label>
+                                                    <input type="text" class="form-control bg-gray mb-2"  name="name" id="name" required>
+                                                </div>
+                                                <div class="col-md-6 mb-20">
+                                                    <label class="mb-2">Your Email:</label>
+                                                    <input type="email" class="form-control bg-gray mb-2" name="email" id="email" required>
+                                                </div>
+                                                <div class="col-md-12 mb-20">
+                                                    <label class="mb-2">Contact Number:</label>
+                                                    <input type="text" class="form-control bg-gray mb-2" name="contact_no" id="contact_no" required>
+                                                </div>
+                                                <div class="col-md-12 mb-20">
+                                                    <label class="mb-2">Message:</label>
+                                                    <textarea class="form-control bg-gray " name="message" rows="2"  id="message" required></textarea>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-primary" value="submit" id="btn_enquiry" name="btn_enquiry" type="submit">Send Message</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overlay-dark modal fade quick-view-modal" id="apply-view">
+                <div class="modal-dialog modal-dialog-centered modal-md">
+                    <div class="modal-content">
+                        <div class="close view-close">
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+                        <div class="modal-body property-block summary p-3">
+                            <div class="row">
+                                <div class="col mb-4">
+                                    <div class="align-items-center d-flex">
+                                        <div class="me-auto">
+                                            <h2 class="d-table">Apply Form</h2>
+                                            <span class="sub-title text-secondary text-center higlight-font w-md-100">Join Our Team</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-xl-1 row-cols-1">
+                                <div class="col">
+                                    <div class="form-simple mb-5">
+                                        <div id="res_"></div>
+                                        <form id="frm_apply" action="#" method="post" class="cmxform">
+                                            {% csrf_token%}
+                                            <input type="text" name="field" id="field_contact" class="field" value="">
+                                            <input type="hidden" name="JD_id" id="JD_id" value="{{job_desc.unique_id}}">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-20">
+                                                    <label class="mb-2">Full Name:</label>
+                                                    <input type="text" class="form-control bg-gray mb-2"  name="name" id="name" required>
+                                                </div>
+                                                <div class="col-md-6 mb-20">
+                                                    <label class="mb-2">Your Email:</label>
+                                                    <input type="email" class="form-control bg-gray mb-2" name="email" id="email" required>
+                                                </div>
+                                                <div class="col-md-6 mb-20">
+                                                    <label class="mb-2">Contact Number:</label>
+                                                    <input type="text" class="form-control bg-gray mb-2" name="number" id="number" required>
+                                                </div>
+                                                <div class="col-md-6 mb-20">
+                                                    <label class="mb-2">City:</label>
+                                                    <input type="text" class="form-control bg-gray mb-2" name="city" id="city" required>
+                                                </div>
+                                                <div class="col-md-12 mb-20">
+                                                    <label class="mb-2">Upload Resume/cv : <small style="color: red;">* PDF file size limit: 5MB maximum.</small></label>
+                                                    <input type="file" accept="application/pdf" class="form-control bg-gray mb-2" name="pdf_file" id="pdf_file" required>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-primary" value="submit" id="btn_apply" name="btn_apply" type="submit"><i class="fas fa-save"></i> Apply</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include "frontend/footer.html" %}
+        {% include "frontend/global-js.html" %}
+        {% block extraJS %}{% endblock %}
+    </body>
+</html>

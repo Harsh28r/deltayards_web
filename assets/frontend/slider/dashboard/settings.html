@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from themetrading.com/html/fresher/demo/dashboard/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 07:59:18 GMT -->
+<head>
+	<!--===== Meta Tag =====-->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="Fresher - Real Estate Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="business, property, directory, listing, real estate, Real estate template, realtor, developer, apartment, broker, real estate agency, map, company, agent, rent house">
+	<meta name="author" content="root">
+	<!--CSs Links
+	==================================================================-->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/color.css">
+	<link rel="stylesheet" href="css/color.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="fonts/flaticon.css">
+
+    <link href="css/bootstrap4-toggle.min.css" rel="stylesheet">
+	<!--====================================================
+	Typography links 
+	Import Google Fonts
+	======================================================-->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  	
+  	<!-- Title -->
+	<title>Fresher - Real Estate Template</title>
+	
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+  
+</head>
+<body oncontextmenu="return true;">
+<!-- Start Back to top
+=========================================================================-->
+<div id="scroll" style="display: none;"><i class="fa fa-angle-up"></i></div>
+<!-- End Back to top
+=========================================================================-->
+<div class="wrapper">
+	<!-- Sidebar Nav Start
+	=========================================================================-->
+    <nav id="sidebar" class="bg-secondary">
+        <div class="sidebar-header">
+            <a href="../index.html"><img src="../images/logo/logo-white.png" alt="image"></a>
+        </div>
+
+        <ul class="list-unstyled components pt-30">
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-object-ungroup"></i> <span>Dashboard</span></a>
+                <ul class="collapse list-unstyled submenu" id="homeSubmenu">
+                    <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li><a href="analytics.html"><i class="fa fa-line-chart"></i> <span>Analytics</span></a></li>
+                    <li><a href="customers.html"><i class="fa fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="message.html"><i class="fa fa-envelope"></i> <span>Message</span></a></li>
+                    <li><a href="comment.html"><i class="fa fa-comments"></i><span>Comment</span></a></li>
+                    <li><a href="review.html"><i class="fa fa-star"></i> <span>Review</span></a></li>
+                    <li><a href="booking-request.html"><i class="fa fa-calendar"></i> <span>Booking Request</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>Manage Property</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu">
+                    <li><a href="listing-property.html"><i class="fa fa-list-alt"></i> <span>Listing Property</span></a></li>
+                    <li><a href="favorite-property.html"><i class="fa fa-star-o"></i> <span>Favorite Property</span></a></li>
+                    <li><a href="purchased-property.html"><i class="fa fa-dollar"></i> <span>Purchased Property</span></a></li>
+                    <li><a href="submit-property.html"><i class="fa fa-space-shuttle"></i> <span>Submit Property</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>Account Details</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu2">
+                    <li><a href="personal-info.html"><i class="fa fa-list-alt"></i> <span>Personal Information</span></a></li>
+                    <li><a href="profile-setting.html"><i class="fa fa-cogs"></i> <span>Profile Settings</span></a></li>
+                    <li><a href="payment-invoice.html"><i class="fa fa-file-archive-o"></i> <span>Payment & Invoice</span></a></li>
+                    <li><a href="change-password.html"><i class="fa fa-lock"></i> <span>Change Password</span></a></li>
+                    <li><a href="social-media-setting.html"><i class="fa fa-space-shuttle"></i> <span>Social Media Settings</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>About Item</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu3">
+                    <li><a href="recent-item.html"><i class="fa fa-list-alt"></i> <span>Recent Items</span></a></li>
+                    <li><a href="featured-item.html"><i class="fa fa-star-o"></i> <span>Featured Items</span></a></li>
+                    <li><a href="offers.html"><i class="fa fa-dollar"></i> <span>Special Offers</span></a></li>
+                    <li><a href="tax-info.html"><i class="fa fa-star-o"></i> <span>Item Tax Information</span></a></li>
+                </ul>
+            </li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out"></i> <span>Logout</span></a></li>
+        </ul>
+    </nav>
+	<!-- Sidebar Nav End
+	=========================================================================-->
+
+    <!-- Page Content  -->
+    <div id="content" class="bg-white">
+    	<!-- Top Nav Start
+		=========================================================================-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="py-5 px-15 color-white bg-primary">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mobile ml-auto icon-white">
+                        <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More <i class="fa fa-angle-down"></i></a>
+							<ul class="dropdown-menu shadow"> 
+								<li><a class="dropdown-item" href="#">Option One</a></li> 
+								<li><a class="dropdown-item" href="#">Option Two</a></li>
+								<li><a class="dropdown-item" href="#">Option Three</a></li>
+								<li><a class="dropdown-item" href="#">Option Four</a></li> 
+								<li><a class="dropdown-item" href="#">Option Five</a></li>
+							</ul>
+						</li>
+						<li><button class="btn btn-primary h-100">Submit Property</button></li>
+						<li><a href="#"><i class="fa fa-bell"></i> <sup class="color-primary">(9)</sup></a></li>
+						<li><a href="#"><i class="fa fa-comments"></i> <sup class="color-primary">(18)</sup></a></li>
+                    </ul>
+                    <div class="dashboard-admin py-10">
+						<ul class="nav navbar-nav ml-auto position-relative">
+                            <li class="nav-item dropdown">
+								<div class="admin-nav">
+									<div class="d-table float-left text-right pr-15">
+										<h6 class="admin color-white">George Jr.</h6>
+										<span class="color-primary">Admin</span>
+									</div>
+									<div class="float-left"><img src="images/admin.jpg" alt="admin-image"></div>
+								</div>
+								<ul class="admin-dropdown shadow bg-white py-5 icon-primary"> 
+									<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li> 
+									<li><a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Inbox</a></li>
+									<li><a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting</a></li>
+									<li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+								</ul>
+							</li>
+                        </ul>
+					</div>
+                </div>
+            </div>
+        </nav>
+        <!-- Top Nav End
+		=========================================================================-->
+
+		<!-- Dashboard Content Start
+		=========================================================================-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-7">
+					<div class="dashboard-title mt-15 mb-30">
+						<h2 class="title color-secondary">Settings</h2>
+						<p>Manage your informatin settings</p>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-5">
+					<div class="admin-setting mt-40">
+						<ul>
+							<li><a class="ml-5" href="#"><i class="fa fa-cog"></i></a></li>
+							<li><a href="#"><i class="fa fa-refresh"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Change password start
+				==================================================-->
+				<div class="col-xl-12">
+					<div class="change-settings p-50 bg-gray">
+                        <form method="post" action="#">
+                            <div class="description">
+                                <h5 class="color-secondary">General Account Settings</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="first-name">First Name</label>
+                                            <input id="first-name" type="text" name="first-name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="last-name">Last Name</label>
+                                            <input id="last-name" type="text" name="last-name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="user-name">Username</label>
+                                            <input id="user-name" type="text" name="user-name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input id="email" type="text" name="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone</label>
+                                            <input id="phone" type="text" name="phone" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="color-secondary mt-5">Security Settings</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xl-10 col-lg-12">
+                                        <div class="important-facts d-inline-block w-100"> 
+                                            <span class="inner-title color-secondary">Login Security</span>
+                                            <label>Do you have any installment system for payment?</label>
+                                            <div class="select-item float-right">
+                                                <input type="checkbox" checked data-toggle="toggle" data-width="100" data-height="50">
+                                            </div>
+                                        </div>
+                                        <div class="important-facts d-inline-block w-100 mt-15"> 
+                                            <span class="inner-title color-secondary">Recovery</span>
+                                            <label>Have any insurance of this property?</label>
+                                            <div class="select-item float-right">
+                                                <input type="checkbox" data-toggle="toggle" data-width="100" data-height="50">
+                                            </div>
+                                        </div>
+                                        <div class="important-facts d-inline-block w-100 mt-15"> 
+                                            <span class="inner-title color-secondary">Blocking</span>
+                                            <label>Is there any labilities of third party with this property?</label>
+                                            <div class="select-item float-right">
+                                                <input type="checkbox" checked data-toggle="toggle" data-width="100" data-height="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="language-list">
+                                <h5 class="color-secondary mt-50">Language Settings</h5>
+                                <hr>
+                                <label class="float-left">Site Language</label>
+                                <select class="form-control">
+                                    <option>US English</option>
+                                    <option>UK English</option>
+                                    <option>Franch</option>
+                                    <option>Bangla</option>
+                                </select>
+                            </div>
+                            <div class="additional-feature">
+                                <h5 class="color-secondary mt-50">Additional Features</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h6 class="color-secondary mb-20">Comment Settings</h6>
+                                        <ul class="features d-table">
+                                            <li>
+                                                <input id="feature-1" type="checkbox">
+                                                <label for="feature-1">Garden Include</label>
+                                            </li>
+                                            <li>
+                                                <input id="feature-2" type="checkbox">
+                                                <label for="feature-2">Fire Place Facility</label>
+                                            </li>
+                                            <li>
+                                                <input id="feature-3" type="checkbox">
+                                                <label for="feature-3">Store Room</label>
+                                            </li>
+                                            <li>
+                                                <input id="feature-4" type="checkbox">
+                                                <label for="feature-4">Security Alarm</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h6 class="color-secondary mb-20">Email Me Whenever</h6>
+                                        <ul class="features d-table">
+                                            <li>
+                                                <input id="feature-5" type="checkbox">
+                                                <label for="feature-5">Garage Facility</label>
+                                            </li>
+                                            <li>
+                                                <input id="feature-6" type="checkbox">
+                                                <label for="feature-6">Play Ground</label>
+                                            </li>
+                                            <li>
+                                                <input id="feature-7" type="checkbox">
+                                                <label for="feature-7">Hight Class Door</label>
+                                            </li>
+                                            <li>
+                                                <input id="feature-8" type="checkbox">
+                                                <label for="feature-8">Fitness Room</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary mt-4" type="submit">Save Change</button>
+                        </form>
+                    </div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="copyright py-15 bg-secondary text-center d-table w-100">
+	<div class="row">
+		<div class="col-xl-12">
+			<span class="color-white">Fresher @ 2020. All Rights Reserved.</span>
+		</div>
+	</div>
+</div>
+
+<!-- jquery Links
+==================================================================-->
+  <script src="../js/jquery-v3.4.1.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/wow.js"></script>
+  <script src="js/Chart2.5.0.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVVUxeZqpBLv-jrgsQO1XQ7wvBS9mlRo"></script>
+  <script src="js/map.scripts.js"></script>
+    <script src="js/bootstrap4-toggle.min.js"></script>
+ 	<script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+    	$(document).ready(function(){
+		  $('.admin-nav').click(function(){
+		    $('.admin-dropdown').slideToggle();
+		  });
+		});
+    </script>
+</body>
+
+<!-- Mirrored from themetrading.com/html/fresher/demo/dashboard/settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 07:59:19 GMT -->
+</html>

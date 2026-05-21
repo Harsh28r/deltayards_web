@@ -1,0 +1,220 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Employee Page"}}{% endblock %}
+
+{% block cntrl %}ng-controller="EmployeeController"{% endblock %}
+{% block cntrl-id %}{{"EmployeeController"}}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Employee"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}
+<button onclick="exportThisWithParameter('export_table','Employee List')" class="btn btn-link xls pull-right text-info"><i class="fa fa-file-excel-o"></i> Export</button>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-9">
+		<div class="box">
+			<div class="box-header with-border">
+				<h4 class="box-title">Employee List</h4>
+				<div class="box-controls">
+					<select ng-model="entryLimit" class="form-control">
+						<option>1</option>
+						<option>5</option>
+						<option>10</option>
+						<option>20</option>
+						<option>50</option>
+						<option>100</option>
+						<option>250</option>
+						<option>500</option>
+					</select> 
+					<div class="input-group_search input-group">
+						<input id="search-projects" type="text" class="input-sm form-control" placeholder="Search" ng-model="query.search">
+					</div>
+				</div>
+			</div>
+			<div class="box-body no-padding">
+				<div class="table-responsive">
+					<table class="table table-hover table-striped" id="export_table" ng-show="filteredItems >0">
+						<tr>
+							<th>Id</th>
+							<th>Date</th>
+							<th class="ignore">#</th>
+							<th class="text-left">Name</th>
+							<th class="text-left">Email</th>
+							<th>Mobile</th>
+							<th>Role</th>
+							<th>Status</th>
+							<th class="ignore">Actions</th>
+						</tr>
+						<tr id="row[[data.emp_id]]" ng-repeat="data in filtered = (list | filter:query.search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" ng-show="filteredItems >0">
+							<td>[[data.sr_no]]</td>
+							<td>[[data.register_date]]</td>
+							<td class="ignore"><img class="avatar" src="media/[[data.profile_img]]" alt="[[data.emp_name]]"></td>
+							<td class="text-left">[[data.emp_name]]</td>
+							<td class="text-left">[[data.email]]</td>
+							<td>[[data.emp_mob]]</td>
+							<td><span class="badge badge-[[data.cls1]]">[[data.role]]</span></td>
+							<td><span class="badge badge-[[data.cls]]">[[data.status]]</span></td>
+							<td class="ignore">
+								<button data-id="[[data.emp_id]]" id="[[data.emp_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-[[data.cls]] changeEmployeeStatus" title="Change Status"><span class="fa fa-[[data.icon]]"></span></button>
+								<button data-id="[[data.emp_id]]" id="[[data.emp_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-primary changePassword" title="Reset Password"><span class="fa fa-key"></span></button>
+								<button data-bs-toggle="modal" data-bs-target="#edit-modal" data-id="[[data.emp_id]]" id="[[data.emp_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-info editEmployee" title="Update Employee"><span class="fa fa-pencil"></span></button>
+								<button data-id="[[data.emp_id]]" id="[[data.emp_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteEmployee" title="Delete Employee"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="row no-data mb10" ng-show="filtered.length==0">
+					<div class="col-md-12 col-sm-12 text-center">
+						<p>No Record To Display</p>
+					</div>
+				</div>
+				<div class="row mt10 mb10" ng-show="filtered.length>0">
+					<div class="col-md-3 col-sm-12 show_record">
+						<p class="show_p">Showing [[ filtered.length ]] of [[ totalItems]] records</p>
+					</div>
+					<div class="col-md-9 col-sm-12">
+						<ul class="pagination pull-right" style="margin-bottom:0px;" pagination="" page="currentPage" on-select-page="setPage(page)" ng-model="currentPage" boundary-links="true" total-items="filtered.length" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;" max-size="5"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="box">
+			<div class="box-body">
+				<form method="post" action="#" class="form-horizontal" name="frm_addEmployee" id="frm_addEmployee" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group col-md-12">
+						<h5>Name: <span class="text-danger">*</span></h5>
+						<input class="form-control" type="text" name="emp_name" required data-validation-required-message="This field is required">
+					</div>
+					<div class="form-group col-md-12">
+						<h5>Email: <span class="text-danger">*</span></h5>
+						<input class="form-control" type="email" name="email" required data-validation-required-message="This field is required">
+					</div>
+					<div class="form-group col-md-12">
+						<h5>Mobile: <span class="text-danger">*</span></h5>
+						<input class="form-control" type="text" name="emp_mob" required data-validation-required-message="This field is required">
+					</div>
+					<div class="form-group col-md-12">
+						<h5>User Role: <span class="text-danger">*</span></h5>
+						<select class="form-control select2" name="role_id" required data-validation-required-message="This field is required">
+							<option value="">Choose Role</option>
+						{% for r in role %}
+							<option value="{{r.id}}">{{r.type}}</option>
+						{% endfor %}
+						</select>
+					</div>
+					<div class="form-group col-md-12">
+						<h5>Profile Image:</h5>
+						<input type="file" class="form-control" name="profile_img" accept="image/*">
+					</div>
+					<hr>
+					<button class="btn btn-primary" type="submit" id="btn_addEmployee" name="btn_addEmployee">Add</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extracontent %}
+<!--Edit Modal-->
+<div id="edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-md"> 
+		<div class="modal-content"> 
+			<div class="modal-header"> 
+				<h4 class="modal-title">
+					<i class="fa fa-pencil"></i> Edit
+				</h4>
+				<button type="button" class="close close-modal" data-bs-dismiss="modal" aria-hidden="true">×</button> 
+			</div> 
+			<form name="frm_updateEmployee" class="form-horizontal" id="frm_updateEmployee" method="post" action="#">
+				{% csrf_token %}
+				<div class="modal-body"> 
+					<div id="modal-loader" style="display: none; text-align: center;">
+						<img src="{% static 'dashboard/img/ajax-loader.gif' %}">
+					</div>
+					<div id="edit-dynamic-content">
+						<input class="form-control" type="hidden" id="edt_emp_id" name="emp_id" value="">
+						<div class="form-group col-md-12">
+							<h5>Name: <span class="text-danger">*</span></h5>
+							<input class="form-control" type="text" id="edt_emp_name" name="emp_name" required data-validation-required-message="This field is required">
+						</div>
+						<div class="form-group col-md-12">
+							<h5>Email: <span class="text-danger">*</span></h5>
+							<input class="form-control" type="email" id="edt_email" name="email" required data-validation-required-message="This field is required">
+						</div>
+						<div class="form-group col-md-12">
+							<h5>Mobile: <span class="text-danger">*</span></h5>
+							<input class="form-control" type="text" id="edt_emp_mob" name="emp_mob" required data-validation-required-message="This field is required">
+						</div>
+						<div class="form-group col-md-12">
+							<h5>User Role: <span class="text-danger">*</span></h5>
+							<select class="form-control" id="edt_role_id" name="role_id" required data-validation-required-message="This field is required" style="width:100%">
+								<option value="">Choose Role</option>
+							{% for r in role %}
+								<option value="{{r.id}}">{{r.type}}</option>
+							{% endfor %}
+							</select>
+						</div>
+						<div class="form-group col-md-12">
+							<h5>Profile Image:</h5>
+							<input type="file" class="form-control" name="profile_img" accept="image/*">
+						</div>
+						<input type="hidden" name="old_profile_img" id="edt_profile_img">
+					</div>
+				</div> 
+				<div class="modal-footer"> 
+					<div class="col-md-12 mb10">
+						<button type="submit" name="btn_updateEmployee" id="btn_updateEmployee" class="btn btn-primary pull-right">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div> 
+	</div>
+</div>
+<!-- password Modal -->
+<div id="change-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-md"> 
+		<div class="modal-content"> 
+			<div class="modal-header"> 
+				<h4 class="modal-title">
+					<i class="fa fa-key"></i> Reset Password
+				</h4>
+				<button type="button" class="close close-modal" data-bs-dismiss="modal" aria-hidden="true">×</button> 
+			</div> 
+			<form name="frm_changeEmpPass" class="form-horizontal" id="frm_changeEmpPass" method="post" action="#">
+				{% csrf_token %}
+				<div class="modal-body"> 
+					<div id="modal-loader" style="display: none; text-align: center;">
+						<img src="{% static 'dashboard/img/ajax-loader.gif' %}">
+					</div>
+					<div id="edit-dynamic-content">
+						<input type="hidden" name="emp_id" id="change_id" value="">
+						<div class="form-group col-md-12">
+							<h5>Password: <span class="text-danger">*</span></h5>
+							<input class="form-control" type="password" id="act_pass" name="change_pass" required data-validation-required-message="This field is required">
+						</div>
+						<div class="form-group col-md-12">
+							<h5>Confirm Password: <span class="text-danger">*</span></h5>
+							<input class="form-control" type="password" id="conf_pass" name="emp_pass" required data-validation-required-message="This field is required">
+						</div>
+						<input class="form-check-input" type="checkbox" value="" id="reveal"/>
+						<label class="form-check-label" for="reveal">Show Password</label>
+					</div>
+				</div> 
+				<div class="modal-footer"> 
+					<div class="col-md-12 mb10">
+						<button type="submit" name="btn_changeEmpPass" id="btn_changeEmpPass" class="btn btn-primary pull-right">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div> 
+	</div>
+</div>
+{% endblock %}

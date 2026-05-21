@@ -1,0 +1,143 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Website Property Enquiry Report"}}{% endblock %}
+
+{% block cntrl %}ng-controller="WebPropertyController"{% endblock %}
+{% block cntrl-id %}{{"WebPropertyController"}}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Website Property Enquiries"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}
+<button onclick="exportThisWithParameter('export_table','Website Property Enquiries')" class="btn btn-link xls pull-right text-info"><i class="fa fa-file-excel-o"></i> Export</button>
+<!-- <button class="btn btn-link xls pull-right text-danger assignLeads" id="3"><i class="fa fa-users"></i> Assign Leads</button> -->
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="box">
+			<div class="box-header with-border">
+				<div class="row">
+					<div class="col-md-5 col-sm-12">
+						<h4 class="box-title">Website Property Enquiries List</h4>
+					</div>
+					<div class="col-md-3 col-sm-2">
+						<div class="btn-group pull-right">
+							 <span id="reportrange" class="btn btn-success" style="cursor: pointer;float:right;border-radius:0px;padding: 5px 16px;">
+								 <i class="fa fa-calendar"></i>&nbsp;
+								 <span class="btn-date-range">
+									 <span>Select Date</span> 
+								 </span>
+								 <b class="caret"></b>
+							 </span>
+							 <span id="clear_filter" class="btn btn-success" style="cursor: pointer;float:right;border-radius:0px;padding: 5px 16px;"><i class="fa fa-refresh"></i></span>
+							 <input type="hidden" name="from_date" id="from_date" required> 
+							 <input type="hidden" name="to_date" id="to_date" required>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<div class="box-controls">
+							<select ng-model="entryLimit" class="form-control">
+								<option>1</option>
+								<option>5</option>
+								<option>10</option>
+								<option>20</option>
+								<option>50</option>
+								<option>100</option>
+								<option>250</option>
+								<option>500</option>
+							</select> 
+							<div class="input-group_search input-group">
+								<input id="search-projects" type="text" class="input-sm form-control" placeholder="Search" ng-model="query.search">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-body no-padding">
+				{% csrf_token %}
+				<div class="table-responsive">
+					<table class="table table-hover table-striped" id="export_table" ng-show="filteredItems >0">
+						<tr>
+							<th>Sr No.</th>
+							<th>Enquiry Date</th>
+							<th class="text-left">Name</th>
+							<th>Contact Number</th>
+							<th class="text-left">Email ID</th>
+							<!-- <th>IP Address</th> -->
+							<th class="text-left">Remark</th>
+						</tr>
+						<tr id="row[[data.prop_id]]" ng-repeat="data in filtered = (list | filter:query.search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" ng-show="filteredItems >0">
+							<td>[[data.sr_no]]</td>
+							<td>[[data.enquiry_date]]</td>
+							<td class="text-left">[[data.full_name]]</td>
+							<td>[[data.contact_number]]</td>
+							<td class="text-left">[[data.email]]</td>
+							<!-- <td>[[data.ip_address]]</td> -->
+							<td class="text-left">[[data.message]]</td>
+						</tr>
+					</table>
+				</div>
+				<div class="row no-data mb10" ng-show="filtered.length==0">
+					<div class="col-md-12 col-sm-12 text-center">
+						<p>No Record To Display</p>
+					</div>
+				</div>
+				<div class="row mt10 mb10" ng-show="filtered.length>0">
+					<div class="col-md-3 col-sm-12 show_record">
+						<p class="show_p">Showing [[ filtered.length ]] of [[ totalItems]] records</p>
+					</div>
+					<div class="col-md-9 col-sm-12">
+						<ul class="pagination pull-right" style="margin-bottom:0px;" pagination="" page="currentPage" on-select-page="setPage(page)" ng-model="currentPage" boundary-links="true" total-items="filtered.length" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;" max-size="5"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extracontent %}
+	{% include "dashboard/includes/assign-modal.html" %}
+{% endblock %}
+
+{% block extrascripts %}
+<script src="{% static 'dashboard/assets/vendor_components/moment/min/moment.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+<script>
+	$(function() {
+		var start = moment();
+		var end = moment();
+		function cb(start, end) {
+			$('#reportrange span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+			$("#from_date").val(start.format('YYYY-MM-DD'));
+			$("#to_date").val(end.format('YYYY-MM-DD'));
+			angular.element(document.getElementById('WebPropertyController')).scope().sort();
+		}
+		$('#reportrange').daterangepicker({
+			locale: {
+				format: 'DD-MMM-YYYY'
+			},
+			startDate: start,
+			endDate: end,
+			ranges: {
+			   'Today': [moment(), moment()],
+			   'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+			   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+			   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+			   'This Month': [moment().startOf('month'), moment().endOf('month')],
+			   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+			}
+		},cb);
+	});
+
+	$("#clear_filter").click(function(){
+		$('#reportrange span').html('<span>Select Date</span>');
+		$("#from_date").val('');
+		$("#to_date").val('');
+		angular.element(document.getElementById('WebPropertyController')).scope().sort();
+	});
+</script>
+{% endblock %}

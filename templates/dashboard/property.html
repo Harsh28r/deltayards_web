@@ -1,0 +1,98 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Property Page"}}{% endblock %}
+
+{% block cntrl %}ng-controller="PropertyController"{% endblock %}
+{% block cntrl-id %}{{"PropertyController"}}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Property"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}
+<a href="add-property" class="waves-effect waves-light btn btn-link text-primary mb-5 pull-right"><i class="fa fa-building"></i> Add New Property</a>
+<button onclick="exportThisWithParameter('export_table','Property List')" class="btn btn-link xls pull-right text-info"><i class="fa fa-file-excel-o"></i> Export</button>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="box">
+			<div class="box-header with-border">
+				<h4 class="box-title">Property List</h4>
+				<div class="box-controls">
+					<select ng-model="entryLimit" class="form-control">
+						<option>1</option>
+						<option>5</option>
+						<option>10</option>
+						<option>20</option>
+						<option>50</option>
+						<option>100</option>
+						<option>250</option>
+						<option>500</option>
+					</select> 
+					<div class="input-group_search input-group">
+						<input id="search-projects" type="text" class="input-sm form-control" placeholder="Search" ng-model="query.search">
+					</div>
+				</div>
+			</div>
+			<div class="box-body no-padding">
+				{% csrf_token %}
+				<div class="table-responsive">
+					<table class="table table-hover table-striped" id="export_table" ng-show="filteredItems >0">
+						<tr>
+							<th>Sr No.</th>
+							<th class="text-left">Property Name</th>
+							<th class="text-left">CODE Name</th>
+							<!-- <th>Buy/Sell</th> -->
+							<th class="text-left">Property Type</th>
+							<!-- <th>Builder Name</th>
+							<th>Possesssion Date</th>
+							<th>MAHARERA Number</th> -->
+							<th>Featured</th>
+							<th>Popular</th>
+							<th>Property Page</th>
+							<th>Status</th>
+							<th class="ignore">Actions</th>
+						</tr>
+						<tr id="row[[data.prop_id]]" ng-repeat="data in filtered = (list | filter:query.search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" ng-show="filteredItems >0">
+							<td>[[data.sr_no]]</td>
+							<td class="text-left"><a href="propertyDetails?id=[[data.unique_id]]">[[data.prop_title]]</a></td>
+							<td class="text-left">[[data.code_name]]</td>
+							<!-- <td>[[data.prop_status]]</td> -->
+							<td class="text-left">[[data.prop_type]]</td>
+							<!-- <td>[[data.builder_name]]</td>
+							<td>[[data.possesssion_date]]</td>
+							<td>[[data.maharera_number]]</td> -->
+							<td>[[data.featured_property]]</td>
+							<td>[[data.popular_property]]</td>
+							<td>[[data.property_page]]</td>
+							<td><span class="badge badge-[[data.cls]]">[[data.property_status]]</span></td>
+							<td class="ignore">
+								<button data-id="[[data.prop_id]]" id="[[data.prop_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-[[data.cls]] changePropertyStatus" title="Change Status"><span class="fa fa-[[data.icon]]"></span></button>
+								<a href="update-property?id=[[data.prop_id]]" data-id="[[data.prop_id]]" id="[[data.prop_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-info" title="Update Property Details"><span class="fa fa-pencil"></span></a>
+								<button data-id="[[data.prop_id]]" id="[[data.prop_id]]" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteProperty" title="Delete Property"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="row no-data mb10" ng-show="filtered.length==0">
+					<div class="col-md-12 col-sm-12 text-center">
+						<p>No Record To Display</p>
+					</div>
+				</div>
+				<div class="row mt10 mb10" ng-show="filtered.length>0">
+					<div class="col-md-3 col-sm-12 show_record">
+						<p class="show_p">Showing [[ filtered.length ]] of [[ totalItems]] records</p>
+					</div>
+					<div class="col-md-9 col-sm-12">
+						<ul class="pagination pull-right" style="margin-bottom:0px;" pagination="" page="currentPage" on-select-page="setPage(page)" ng-model="currentPage" boundary-links="true" total-items="filtered.length" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;" max-size="5"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extracontent %}{% endblock %}

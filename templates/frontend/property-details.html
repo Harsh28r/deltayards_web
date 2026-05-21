@@ -1,0 +1,184 @@
+{% extends 'frontend/base.html'%}
+{% load static %}
+{% block content%}
+<div class="full-row p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="single-property" style="width:800px; height:400px; margin:0 auto 30px;">
+                    {% for i in img %}
+                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="800px" height="400px" src="media/{{i.img}}" class="ls-bg" alt="" /> </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-8 order-xl-1 mx-auto">
+    <div class="property-overview border summary rounded bg-white p-30 mb-30">
+        <div class="row mb-4">
+            <div class="col-auto">
+                <div class="post-meta font-small text-uppercase list-color-primary">
+                    <a href="#" class="listing-ctg"><i class="fa-solid fa-building"></i><span>{{prop.prop_type}}</span></a>
+                </div>
+                <h4 class="listing-title"><a href="single">{{prop.project_name}}</a></h4>
+                <span class="listing-location"><i class="fas fa-map-marker-alt text-primary"></i> {{prop.prop_address}}</span>
+                <a href="#" class="d-block text-light hover-text-primary font-small mb-2">( 100 People Recommended )</a>
+            </div>
+            <div class="col-auto ms-auto xs-m-0 text-end xs-text-start pb-4">
+                <span class="listing-price">{{prop.prop_price}}<small>{{prop.prop_carpet_area}} sqft</small></span>
+                <span class="text-white font-mini px-2 rounded product-status ms-auto xs-m-0 py-1 bg-primary"><i class="fas fa-check"></i> Available</span>
+            </div>
+        </div>
+        <div class="row row-cols-1">
+            <div class="col">
+                <h5 class="mb-3">Description</h5>
+                <p>{{prop.prop_about}}</p>
+                <!-- <div class="short-description d-flex">
+                    <span class="me-4 font-500">Highlights:</span>
+                    <div class="short-description">
+                        <ul class="list-style-tick">
+                            <li>Regular Fit.</li>
+                            <li>Full sleeves.</li>
+                            <li>Machine wash, tumble dry.</li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    {% if rooms|length > 1 %}
+    <div class="property-overview border rounded bg-white p-30 mb-30">
+        <div class="row row-cols-1">
+            <div class="col">
+                <h5 class="mb-3">Room Options</h5>
+                <ul class="list-style-tick">
+                    {% for room in rooms %}
+                    <li>{{ room.prop_rooms }} — {{ room.prop_carpet_area }} sqft — {{ room.prop_price }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="property-overview border rounded bg-white p-30 mb-30">
+        <div class="row row-cols-1">
+            <div class="col">
+                <h5 class="mb-3">Property Features</h5>
+                <ul class="list-three-fold-width list-style-tick">
+                    {% for f in feature %}
+                    <li>{{f.feature}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% if video|length > 0 %}
+    <div class="property-overview border rounded bg-white overflow-hidden mb-30">
+        <div class="row row-cols-1">
+            <div class="col">
+                <div class="mt-md-30 position-relative overlay-secondary" id="vid_div">
+                    <button class="video-popup" id="btn_play">
+                        <span class="flaticon-play-button bg-primary text-white xy-center"></span>
+                    </button>
+                    <video class="video-popup" width="100%" onplay="playedVideo()" onpause="pausedVideo()" id="video">
+                        <!-- <span class="flaticon-play-button bg-primary text-white xy-center"></span> -->
+                        <source src="media/{{video.video_url}}" type="video/mp4"/>
+                    </video>
+                    <div class="loader position-absolute xy-center" id="vid_loader">
+                        <div class="loader-inner ball-scale-multiple">
+                            <div style="background: var(--theme-primary-color);"></div>
+                            <div style="background: var(--theme-primary-color);"></div>
+                        </div><span class="tooltip">
+                        <b>ball-scale-multiple</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<!-- <div class="page-banner-simple bg-secondary py-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="banner-title text-white">For More Details </h3>
+                
+            </div>
+            <div class="col-lg-6 text-center">
+                <a href="#registerModal" class="btn btn-primary w-50" type="button" data-bs-toggle="modal">Register Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade mt-5 pt-5" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalTitle">Contact Us</h5>
+                <div class="btn btn-sm btn-icon btn-active-color-primary" id="modalClose" data-bs-dismiss="modal">
+                    <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <rect x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form class="quick-search form-icon-right" action="#" method="post">
+                    <div class="form-row">
+                        <div class="col-12 mb-10">
+                            <div class="form-group mb-0">
+                                <input type="text" class="form-control" name="name" placeholder="Your Name">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-10">
+                            <div class="form-group mb-0">
+                                <input type="text" class="form-control" name="phone" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-10">
+                            <div class="form-group mb-0">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-10">
+                            <div class="form-group mb-0">
+                                <textarea class="form-control" name="message" placeholder="Message" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-0">
+                                <button class="btn btn-primary w-100">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+{% endblock %}
+{% block extraJS %}
+<script>
+    function playedVideo(){
+        //alert('inside video()');
+        $('#vid_div').removeClass('overlay-secondary');
+        $('#vid_loader').css('display','none');
+        $('#btn_play').css('display','none');
+        $('#video').attr('controls','true');
+
+    }
+    function pausedVideo(){
+        $('#vid_div').addClass('overlay-secondary');
+        $('#vid_loader').css('display','block');
+        $('#btn_play').css('display','block');
+        $('#video').attr('controls','false');
+    }
+
+    $('#btn_play').click(function(){
+        document.getElementById('video').play();
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html ng-app="PROPSTOP" ng-app lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Virash Technologies provides innovative multichannel e-commerce solutions for retailers of both mid-cap and large-cap.">
+		<meta name="author" content="Virash Technologies LLP">
+		<link rel="icon" href="{% static 'dashboard/img/favicon.png' %}">
+		<title>Delta Yards | {% block site_title %}{% endblock %}</title>
+		<base href="/">
+		<!-- Vendors Style-->
+		<link rel="stylesheet" href="{% static 'dashboard/css/vendors_css.css' %}">
+		<link rel="stylesheet" href="{% static 'dashboard/css/dropzone.css' %}">
+		<!-- Style-->    
+		<link rel="stylesheet" href="{% static 'dashboard/css/horizontal-menu.css' %}"> 
+		<link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'dashboard/css/skin_color.css' %}">	
+		<link rel="stylesheet" href="{% static 'dashboard/js/validation/sweetalert/sweetalert.css' %}">
+		{% block extracss %}{% endblock %}
+	</head>	
+	<body class="layout-top-nav light-skin theme-primary fixed" {% block cntrl %}{% endblock %} id="{% block cntrl-id %}{% endblock %}">
+		{% include "dashboard/includes/header.html" %}
+		{% include "dashboard/includes/admin_menu.html" %}
+		<div class="wrapper">
+			<div class="content-wrapper">
+				<div class="container-full">  
+					<div class="content-header">
+						<div class="row">
+							<div class="col-6">
+								<div class="d-flex align-items-center">
+									<div class="me-auto">
+										<h3 class="page-title">{% block page_title %}{% endblock %}</h3>
+										<div class="d-inline-block align-items-center">
+											<nav>
+												<ol class="breadcrumb">
+													<li class="breadcrumb-item"><a href="admin_panel"><i class="fa fa-home"></i></a></li>
+													<li class="breadcrumb-item" aria-current="page">Dashboard</li>
+													<li class="breadcrumb-item active" aria-current="page">{% block menu_title %}{% endblock %}</li>
+												</ol>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								{% block extra_buttons %}{% endblock %}
+							</div>
+						</div>
+					</div>
+					<section class="content container-fluid" id="page-content">
+						{% block content %}{% endblock %}
+					</section>
+				</div>	  	
+			</div>
+			{% block extracontent %}{% endblock %}
+		</div>
+		{% include "dashboard/includes/loading.html" %}
+		{% include "dashboard/includes/globaljs.html" %}
+		{% block extrascripts %}{% endblock %}
+	</body>
+</html>

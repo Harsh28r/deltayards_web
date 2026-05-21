@@ -1,0 +1,1064 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Update Property Page"}}{% endblock %}
+
+{% block cntrl %}ng-controller="PropertyController"{% endblock %}
+{% block cntrl-id %}{{"PropertyController"}}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Property"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}
+<a href="property" class="waves-effect waves-light btn btn-link text-primary mb-5 pull-right"><i class="fa fa-building"></i> Property List</a>
+<link rel="stylesheet" href="{% static 'dashboard/css/light.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<div class="box">
+		  <div class="box-header with-border">
+			<h4 class="box-title">Update Property Details</h4>
+			<!-- <h6 class="box-subtitle">Use default tab with class <code>nav-tabs &amp; justify-content-center </code></h6> -->
+		  </div>
+		  <!-- /.box-header -->
+		  <div class="box-body prop-body">
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs justify-content-center" role="tablist">
+				  <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#property" role="tab"><span><i class="fa fa-building"></i></span> <span class="hidden-xs-down">Property Details</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#room_configuration" role="tab"><span><i class="fa fa-bed"></i></span> <span class="hidden-xs-down">Room Configurations</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#floor_plans" role="tab"><span><i class="fa fa-map-o"></i></span> <span class="hidden-xs-down">Upload Floor Plans</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#places" role="tab"><span><i class="fa fa-map"></i></span> <span class="hidden-xs-down">Near By Places</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#amenities" role="tab"><span><i class="fa fa-child"></i></span> <span class="hidden-xs-down">Amenities</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#features" role="tab"><span><i class="fa fa-commenting"></i></span> <span class="hidden-xs-down">Property Feature</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#pictures" role="tab"><span><i class="fa fa-file-image-o"></i></span> <span class="hidden-xs-down">Upload Pictures</span></a> </li>
+				  <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#videos" role="tab"><span><i class="fa fa-video-camera"></i></span> <span class="hidden-xs-down">Upload Videos</span></a> </li>
+			  </ul>
+			  <!-- Tab panes -->
+			  <div class="tab-content tabcontent-border">
+				  <div class="tab-pane active" id="property" role="tabpanel">
+					<form action="#" name="frm_updateProperty" id="frm_updateProperty" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="prop_id" value="{{data.prop_id}}">
+						<h4 class="box-title text-danger mb-0">Property Description</h4>
+						<hr class="my-15">
+						<!-- <div class="form-group mb-10">
+							<label class="form-label">Property Title</label>
+							<input type="text" class="form-control" name="prop_title" id="prop_title" placeholder="Enter your property title" required>
+						</div> -->
+						<div class="row">
+							<div class="col-xl-9 col-12">
+								<div class="row">
+									<div class="col-xl-12 col-12 form-group">
+										<label class="form-label">Project Name<span class="error">*</span></label>
+										<input type="text" class="form-control" name="project_name" id="project_name" placeholder="Enter Project Name" value="{{data.project_name}}" required>
+									</div>
+									<div class="col-xl-6 col-12 form-group">
+										<label class="form-label">CODE Name<span class="error">(If Any)</span></label>
+										<input type="text" class="form-control" name="code_name" id="code_name" placeholder="Enter CODE Name" value="{{data.code_name}}">
+									</div>
+									<div class="col-xl-6 col-12 form-group">
+										<label class="form-label">Type</label>
+										<select class="form-control select2" name="prop_type" id="prop_type">
+											<!-- <option value="">select</option> -->
+											{% for pt in prop_type_lst %}
+											<option value="{{pt}}" {% if pt == data.prop_type %} selected {% endif %}>{{pt}}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<div class="form-group mb-10">
+										<label class="form-label">About Project</label>
+										<textarea rows="5" class="form-control" name="prop_about" id="prop_about" placeholder="About Project">{{data.prop_about}}</textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-12">
+								<div class="card thumbDiv">
+									<h4 class="card-title" style="padding: 10px !important;">Elevation Image</h4>
+									{% if data.thumbnail|length > 0  %}
+										{% for thumbnail in data.thumbnail %}
+											<img class="card-img-top bter-0 btsr-0" id="thumb_img" src="media/{{thumbnail.image_url}}">
+											<input type="file" id="thumbnail_update" name="thumbnail" style="display:none"/>
+											<div class="card-footer justify-content-between d-flex" style="padding: 10px !important;">
+												<ul class="list-inline mb-0 thumb_list">
+													<li><a href="#" id="updateThumb" onclick="$('#thumbnail_update').trigger('click'); return false;">Update Elevation Image</a></li>
+													<li><a href="#" id="{{thumbnail.image_id}}" class="deletePropImage">Remove Elevation Image</a></li>
+													<input type="hidden" value="{{thumbnail.image_url}}" id="img_{{thumbnail.image_id}}">
+													<input type="hidden" value="{{thumbnail.image_id}}" id="image_id">
+												</ul>
+											</div>
+										{% endfor %}
+									{% else %}
+										<img class="card-img-top bter-0 btsr-0" id="thumb_img">
+										<input type="file" id="thumbnail" name="thumbnail" style="display:none"/>
+										<div class="card-footer justify-content-between d-flex" style="padding: 10px !important;">
+											<ul class="list-inline mb-0 thumb_list">
+												<li><a href="#" id="setThumb" onclick="$('#thumbnail').trigger('click'); return false;">Set Elevation Image</a></li>
+											</ul>
+										</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+						<!-- <div class="row mb-10">
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Status</label>
+								<select class="form-control select2" name="prop_status" id="prop_status">
+									<option value="">select</option>
+									{% for ps in prop_status_lst %}
+									<option value="{{ps}}" {% if ps == data.prop_status %} selected {% endif %}>{{ps}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Type</label>
+								<select class="form-control select2" name="prop_type" id="prop_type">
+									<option value="">select</option>
+									{% for pt in prop_type_lst %}
+									<option value="{{pt}}" {% if pt == data.prop_type %} selected {% endif %}>{{pt}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Number of Rooms</label>
+								<select class="form-control select2" name="prop_rooms" id="prop_rooms">
+									<option value="">select</option>
+									{% for pr in prop_rooms_lst %}
+									<option value="{{pr}}" {% if pr == data.prop_rooms %} selected {% endif %}>{{pr}}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div> -->
+						<!-- <div class="row mb-10">
+							<div class="col-xl-6 col-12 form-group">
+								<label class="form-label">Price</label>
+								<input type="number" class="form-control" name="prop_price" id="prop_price" value="{{data.prop_price}}" placeholder="Enter your property price">
+							</div>
+							<div class="col-xl-6 col-12 form-group">
+								<label class="form-label">Carpet Area&nbsp;<span class="text-secondary">(sqft)</span></label>
+								<input type="number" class="form-control" name="prop_carpet_area" id="prop_carpet_area" value="{{data.prop_carpet_area}}" placeholder="Enter your property area in sqft">
+							</div>
+						</div> -->
+						<h4 class="box-title text-danger mb-0">Property Location</h4>
+						<hr class="my-15">
+						<div class="row mb-10">
+							<div class="col-xl-6 col-12">
+								<div class="form-group">
+									<label class="form-label">Address</label>
+									<input type="text" class="form-control" name="prop_address" id="prop_address" value="{{data.prop_address}}" placeholder="Enter Your Address">
+								</div>
+								<div class="form-group">
+									<label class="form-label">City</label>
+									<input type="text" class="form-control" name="prop_city" id="prop_city" value="{{data.prop_city}}" placeholder="Enter Your City">
+								</div>
+								<div class="form-group">
+									<label class="form-label">Google Maps Latitude</label>
+									<input type="text" class="form-control" name="prop_latitude" id="prop_latitude" value="{{data.prop_latitude}}" placeholder="Google Maps Latitude">
+								</div>
+							</div>
+							<div class="col-xl-6 col-12">
+								<div class="form-group">
+									<label class="form-label">Pin Code</label>
+									<input type="text" class="form-control" name="prop_pincode" id="prop_pincode" value="{{data.prop_pincode}}" placeholder="Enter Your Pincode" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="6">
+								</div>
+								<div class="form-group">
+									<label class="form-label">State</label>
+									<input type="text" class="form-control" name="prop_state" id="prop_state" value="{{data.prop_state}}" placeholder="Enter Your Address">
+								</div>
+								<input type="hidden" name="prop_country" value="India">
+								<!-- <div class="form-group">
+									<label class="form-label">Country</label>
+									<input type="text" class="form-control" name="prop_country" id="prop_country" placeholder="Enter Your Country">
+								</div> -->
+								<div class="form-group">
+									<label class="form-label">Google Maps Longitude</label>
+									<input type="text" class="form-control" name="prop_longitude" id="prop_longitude" value="{{data.prop_longitude}}" placeholder="Google Maps Longitude">
+								</div>
+							</div>
+						</div>
+						<h4 class="box-title text-danger mb-0">Extra Information</h4>
+						<hr class="my-15">
+						<div class="row mb-10">
+							<div class="col-xl-3 col-12 form-group">
+								<input type="hidden" id="old_brochure" name="old_brochure" value="{{data.brochure}}">
+								<label class="form-label">Upload Brochure 
+								{% if data.brochure != '' %}
+									<a href="media/{{data.brochure}}" target="_blank">View Image</a>
+								{% endif %}
+								</label>
+								<input type="file" accept="application/pdf" class="form-control" id="brochure" name="brochure">
+							</div>
+							<div class="col-xl-12 col-12 form-group">
+								<label class="form-label">Building Status</label>
+								<!-- <select class="form-control select2" name="build_status" id="build_status">
+									<option value="">select</option>
+									{% for bs in build_status_lst %}
+									<option value="{{bs}}" {% if bs == data.build_status %} selected {% endif %}>{{bs}}</option>
+									{% endfor %}
+								</select> -->
+							</div>
+							{% if data.build_status_ready == "Ready to Move" %}
+							<div class="col-xl-12 col-12 ready">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										<input id="ready_to_move" name="ready_to_move" type="checkbox" value="Ready to Move" checked>
+										<label for="ready_to_move"> Ready to Move</label><br>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-12 form-group ready_cont">
+								<label class="form-label">Number of Wings</label>
+								<input type="number" class="form-control" name="build_wings" id="build_wings" value="{{data.build_wings}}" placeholder="eg. 2">
+							</div>
+							<div class="col-xl-3 col-12 form-group ready_cont">
+								<label class="form-label">Number of Floors</label>
+								<input type="number" class="form-control" name="build_floors" id="build_floors" value="{{data.build_floors}}" placeholder="eg. 7">
+							</div>
+							{% else %}
+							<div class="col-xl-12 col-12 ready">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										<input id="ready_to_move" name="ready_to_move" type="checkbox" value="Ready to Move">
+										<label for="ready_to_move"> Ready to Move</label><br>
+									</div>
+								</div>
+							</div>
+							{% endif %}
+							{% if data.build_status_under == "Under Construction" %}
+							<div class="col-xl-12 col-12 under">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										<input id="under_construction" name="under_construction" type="checkbox" value="Under Construction" checked>
+										<label for="under_construction"> Under Construction</label><br>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-12 under_cont">
+								<div class="form-group ">
+									<label class="form-label">Possession Date</label>
+									<input type="month" placeholder="mm/yyyy" class="form-control" name="possesssion_date" id="possesssion_date" value="{{data.possesssion_date}}" placeholder="Choose Possession Date">
+								</div>
+							</div>
+							{% else %}
+							<div class="col-xl-12 col-12 under">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										<input id="under_construction" name="under_construction" type="checkbox" value="Under Construction">
+										<label for="under_construction"> Under Construction</label><br>
+									</div>
+								</div>
+							</div>
+							{% endif %}
+							
+							<!-- <div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Building Age</label>
+								<input type="text" class="form-control" name="build_age" id="build_age" value="{{data.build_age}}" placeholder="Enter Builder Age"> -->
+								<!-- <select class="form-control select2" name="build_age" id="build_age">
+									<option value="">select</option>
+									{% for ba in build_age_lst %}
+									<option value="{{ba}}" {% if ba == data.build_age %} selected {% endif %}>{{ba}}</option>
+									{% endfor %}
+								</select> -->
+							<!-- </div> -->
+							<!-- <div class="col-xl-4 col-12">
+								<label class="form-label">Bedrooms</label>
+								<select class="form-control select2" name="prop_bedroom" id="prop_bedroom">
+									<option value="">select</option>
+									{% for pb in prop_bedroom_lst %}
+									<option value="{{pb}}" {% if pb == data.prop_bedroom %} selected {% endif %}>{{pb}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-xl-4 col-12">
+								<label class="form-label">Bathrooms</label>
+								<select class="form-control select2" name="prop_bathroom" id="prop_bathroom">
+									<option value="">select</option>
+									{% for pba in prop_bathroom_lst %}
+									<option value="{{pba}}" {% if pba == data.prop_bathroom %} selected {% endif %}>{{pba}}</option>
+									{% endfor %}
+								</select>
+							</div> -->
+							
+						</div>
+						<h4 class="box-title text-danger mb-0">Builder Information</h4>
+						<hr class="my-15">
+						<div class="row mb-10">
+							<div class="col-xl-6 col-12">
+								<div class="form-group">
+									<label class="form-label">Builder Name</label>
+									<input type="text" class="form-control" name="builder_name" id="builder_name" value="{{data.builder_name}}" placeholder="Enter Builder Name">
+								</div>
+								<div class="form-group">
+									<label class="form-label">Project Land Parcel <span class="error">(in Acres)</span></label>
+									<input type="number" class="form-control" name="project_land_parcel" id="project_land_parcel" value="{{data.project_land_parcel}}" placeholder="Enter Project Land">
+								</div>
+							</div>
+							<div class="col-xl-6 col-12">
+								<div class="form-group"> 
+									<label class="form-label">MAHARERA Number</label>
+									<input type="text" class="form-control" name="maharera_number" id="maharera_number" value="{{data.maharera_number}}" placeholder="Enter MAHARERA Number">
+								</div>
+							</div>
+						</div>
+						<h4 class="box-title text-danger mb-0">Properties Show in Home Page</h4>
+						<hr class="my-15">
+						<div class="row mb-10">
+							<div class="col-xl-3 col-12">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										{% if data.featured_property == "Yes" %}
+										<input id="featured_property" name="featured_property" type="checkbox" value="Featured Property" checked>
+										{% else %}
+										<input id="featured_property" name="featured_property" type="checkbox" value="Featured Property">
+										{% endif %}
+										<label for="featured_property"> Featured Property</label><br>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-12">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										{% if data.popular_property == "Yes" %}
+										<input id="popular_property" name="popular_property" type="checkbox" value="Popular Property" checked>
+										{% else %}
+										<input id="popular_property" name="popular_property" type="checkbox" value="Popular Property">
+										{% endif %}
+										<label for="popular_property"> Popular Property</label><br>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-12">
+								<div class="form-group">
+									<div class="checkbox checkbox-danger">
+										{% if data.property_page == "Yes" %}
+										<input id="property_page" name="property_page" type="checkbox" value="Property Page" checked>
+										{% else %}
+										<input id="property_page" name="property_page" type="checkbox" value="Property Page">
+										{% endif %}
+										<label for="property_page"> Property Page</label><br>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr class="my-15">
+						<div class="row mb-10 text-end">
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updateProperty" id="btn_updateProperty" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</form>
+				  </div>
+				  <div class="tab-pane" id="room_configuration" role="tabpanel">
+					<h4 class="box-title text-danger mb-0">Room Configuration</h4>
+					<hr class="my-15">
+					<input type="hidden" id="prop_id" value="{{data.prop_id}}">
+					<div class="room_data">
+						{% for room in data.rooms %}
+						<div class="row mb-10">
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Configuration</label>
+								<select class="form-control" id="prop_rooms_{{room.room_id}}" style="width:100%" required>
+									<option value="">select</option>
+									{% for pr in prop_rooms_lst %}
+									<option value="{{pr}}" {% if pr == room.prop_rooms %} selected {% endif %}>{{pr}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Carpet Area&nbsp;<span class="text-secondary">(sqft)</span></label>
+								<input type="number" class="form-control" id="prop_carpet_area_{{room.room_id}}" value="{{room.prop_carpet_area}}" placeholder="Enter your property area in sqft">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Price</label>
+								<input type="number" class="form-control" id="prop_price_{{room.room_id}}" value="{{room.prop_price}}" placeholder="Enter your property price">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<input type="hidden" id="old_blue_print_{{room.room_id}}" value="{{room.blue_print}}">
+								<label class="form-label">Change Layout Blue Print 
+								{% if room.blue_print != '' %}
+									<a href="media/{{room.blue_print}}" target="_blank">View Image</a>
+								{% endif %}
+								</label>
+								<input type="file" class="form-control" id="blue_print_{{room.room_id}}">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<input type="hidden" id="old_threed_print_{{room.room_id}}" value="{{room.threed_print}}">
+								<label class="form-label">Change Layout 3D Print 
+								{% if room.threed_print != '' %}
+									<a href="media/{{room.threed_print}}" target="_blank">View Image</a>
+								{% endif %}
+								</label>
+								<input type="file" class="form-control" id="threed_print_{{room.room_id}}">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label" style="display: block;">&nbsp;</label>
+								<button type="button" data-id="{{room.room_id}}" id="{{room.room_id}}" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-primary updateRoom" title="Update Room Configuration"><span class="fa fa-save"></span></button>&nbsp;&nbsp;
+								<button type="button" data-id="{{room.room_id}}" id="{{room.room_id}}" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteRoom" title="Delete Room Configuration"><span class="fa fa-trash"></span></button>
+							</div>
+						</div>
+						<hr class="my-15">
+						{% endfor %}
+					</div>
+					<form action="#" name="frm_roomConfiguration" id="frm_roomConfiguration" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<input type="hidden" name="prop_id" value="{{data.prop_id}}">
+						<div class="row mb-10">
+							<input type="hidden" name="u_id" value="1">
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Configuration</label>
+								<select class="form-control" name="prop_rooms_1" id="prop_rooms" style="width:100%" required>
+									<option value="">select</option>
+									<option>1 BHK</option>
+									<option>2 BHK</option>
+									<option>3 BHK</option>
+									<option>4 BHK</option>
+									<option>5 BHK</option>
+									<option>6 BHK</option>
+									<option>7 BHK</option>
+									<option>8 BHK</option>
+									<option>9 BHK</option>
+									<option>10 BHK</option>
+								</select>
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Carpet Area&nbsp;<span class="text-secondary">(sqft)</span></label>
+								<input type="number" class="form-control" name="prop_carpet_area_1" id="prop_carpet_area" placeholder="Enter your property area in sqft">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Price</label>
+								<input type="number" class="form-control" name="prop_price_1" id="prop_price" placeholder="Enter your property price">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Layout Blue Print</label>
+								<input type="file" class="form-control" name="blue_print_1" id="blue_print">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label">Layout 3D Print</label>
+								<input type="file" class="form-control" name="threed_print_1" id="threed_print">
+							</div>
+							<div class="col-xl-4 col-12 form-group">
+								<label class="form-label" style="display: block;">&nbsp;</label>
+								<button type="button" id="btnAdd" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-info" title="Add Room Configuration"><span class="fa fa-plus"></span></button>
+							</div>
+						</div>
+						<div class="dynamic_config">
+						</div>
+						<hr class="my-15">
+						<div class="row mb-10 text-end">
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_roomConfiguration" id="btn_roomConfiguration" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</form>
+				  </div>
+				  <div class="tab-pane" id="floor_plans" role="tabpanel">
+					<div class="row mb-10 text-end">
+						<div class="col-md-6">
+							<div class="row mb-10 text-end floor_div">
+								{% for floor in data.floors %}
+								<div class="col-md-4 mb-10">
+									<div style="position: relative;top: 0;left: 0;" class="mb-10">
+										<a href="#" id="{{floor.image_id}}" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteFloorPlans" style="position: absolute;top: -10px;right: -7px;"><span class="fa fa-times"></span></a>
+										<div style="position: relative;top: 0;left: 0;">
+											<img src="media/{{floor.image_url}}">
+											<input type="hidden" value="{{floor.image_url}}" id="floor_{{floor.image_id}}">
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-12 mb-10">
+								<form action="#" method="post" enctype="multipart/form-data" class="dropzone" id="floorPlan">
+									{% csrf_token %}
+								</form>
+							</div>
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updateFloorPlans" id="btn_updateFloorPlans" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</div>
+				  </div>
+				  <div class="tab-pane" id="places" role="tabpanel">
+					<form action="#" name="frm_updatePlaces" id="frm_updatePlaces" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="prop_id" value="{{data.prop_id}}">
+						<h4 class="box-title text-danger mb-0">Near By Places</h4>
+						<hr class="my-15">
+						<div class="form-group">
+							<div class="checkbox checkbox-danger">
+								{% for near_place in data.places %}
+									{% if near_place.place_id == "NA" %}
+										<input id="place_chk_{{forloop.counter}}" name="near_by_places" class="cb_places" type="checkbox" value="{{near_place.place_name}}">
+										<label for="place_chk_{{forloop.counter}}" class="chk place_chk_{{forloop.counter}}"> {{near_place.place_name}} </label><br>
+									{% elif near_place.place_id != "NA" %}
+										<!-- <input type="hidden" id="place_id_place_chk_{{forloop.counter}}" name="near_by_places_id" value="{{near_place.place_id}}">	 -->
+										<input id="place_chk_{{forloop.counter}}" name="near_by_places" class="cb_places" type="checkbox" value="{{near_place.place_name}}" checked>
+										<label for="place_chk_{{forloop.counter}}" class="chk place_chk_{{forloop.counter}}"> {{near_place.place_name}} </label><br>
+										<input type="text" class="form-control cb_places_txt" name="near_by_places_text" id="txt_place_chk_{{forloop.counter}}" value="{{near_place.place_desc}}">
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<hr class="my-15">
+						<div class="row mb-10 text-end">
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updatePlaces" id="btn_updatePlaces" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</form>
+				  </div>
+				  <div class="tab-pane" id="amenities" role="tabpanel">
+					<form action="#" name="frm_updateAmenities" id="frm_updateAmenities" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="prop_id" value="{{data.prop_id}}">
+						<h4 class="box-title text-danger mb-0">Amenities</h4>
+						<hr class="my-15">
+						<div class="form-group">
+							<div class="checkbox checkbox-danger">
+								{% for amenity in data.amenities %}
+									{% if amenity.amenity_id == "NA" %}
+										<input id="amenity_chk_{{forloop.counter}}" name="amenities" type="checkbox" class="cb_amenities" value="{{amenity.amenity_name}}">
+										<label for="amenity_chk_{{forloop.counter}}" class="chk amenity_chk_{{forloop.counter}}"> {{amenity.amenity_name}} </label>
+									{% elif amenity.amenity_id != "NA" %}
+										<input id="amenity_chk_{{forloop.counter}}" name="amenities" type="checkbox" class="cb_amenities" value="{{amenity.amenity_name}}" checked>
+										<label for="amenity_chk_{{forloop.counter}}" class="chk amenity_chk_{{forloop.counter}}"> {{amenity.amenity_name}} </label>
+										{% if amenity.amenity_name == "Any other Amenity" %}
+											<input type="text" class="form-control" name="other_amenity" id="other_amenity_amenity_chk_{{forloop.counter}}" placeholder="Enter comma separated amenities" value="{{amenity.amenity_desc}}" required>
+										{% endif %}
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<hr class="my-15">
+						<div class="row mb-10 text-end">
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updateAmenities" id="btn_updateAmenities" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</form>
+				  </div>
+				  <div class="tab-pane" id="features" role="tabpanel">
+					<form action="#" name="frm_updateFeatures" id="frm_updateFeatures" method="post">
+						{% csrf_token %}
+						<input type="hidden" name="prop_id" value="{{data.prop_id}}">
+						<h4 class="box-title text-danger mb-0">Property Features</h4>
+						<hr class="my-15">
+						<div class="form-group">
+							<div class="checkbox checkbox-danger">
+								{% for feature in data.features %}
+									{% if feature.feature_id == "NA" %}
+										<input id="feature_chk_{{forloop.counter}}" name="features" type="checkbox" class="cb_feature" value="{{feature.feature_name}}">
+										<label for="feature_chk_{{forloop.counter}}" class="chk feature_chk_{{forloop.counter}}"> {{feature.feature_name}} </label>
+									{% elif feature.feature_id != "NA" %}
+										<input id="feature_chk_{{forloop.counter}}" name="features" type="checkbox" class="cb_feature" value="{{feature.feature_name}}" checked>
+										<label for="feature_chk_{{forloop.counter}}" class="chk feature_chk_{{forloop.counter}}"> {{feature.feature_name}} </label>
+										{% if feature.feature_name == "Any Household asset" %}
+											<input type="text" class="form-control" name="other_assets" id="other_assets_feature_chk_{{forloop.counter}}" placeholder="Enter comma separated assets" value="{{feature.feature_desc}}" required>
+										{% endif %}
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<hr class="my-15">
+						<div class="row mb-10 text-end">
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updateFeatures" id="btn_updateFeatures" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</form>
+				  </div>
+				  <div class="tab-pane" id="pictures" role="tabpanel">
+					<div class="row mb-10 text-end">
+						<div class="col-md-6">
+							<div class="row mb-10 text-end img_div">
+								{% for img in data.images %}
+								<div class="col-md-4 mb-10">
+									<div style="position: relative;top: 0;left: 0;" class="mb-10">
+										<a href="#" id="{{img.image_id}}" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deletePropImage" style="position: absolute;top: -10px;right: -7px;"><span class="fa fa-times"></span></a>
+										<div style="position: relative;top: 0;left: 0;">
+											<img src="media/{{img.image_url}}">
+											<input type="hidden" value="{{img.image_url}}" id="img_{{img.image_id}}">
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-12 mb-10">
+								<form action="#" method="post" enctype="multipart/form-data" class="dropzone" id="myDropzone">
+									{% csrf_token %}
+								</form>
+							</div>
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updatePropImages" id="btn_updatePropImages" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</div>
+				  </div>
+				  <div class="tab-pane" id="videos" role="tabpanel">
+					<div class="row mb-10 text-end">
+						<div class="col-md-6">
+							<div class="row mb-10 text-end video_div">
+								{% for vid in data.videos %}
+								<div class="col-md-4 mb-10">
+									<div style="position: relative;top: 0;left: 0;" class="mb-10">
+										<a href="#" id="{{vid.video_id}}" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteVideo" style="position: absolute;top: -10px;right: -7px;"><span class="fa fa-times"></span></a>
+										<div style="position: relative;top: 0;left: 0;">
+											<a href="#" id="video1">
+												<video width="100%" controls>
+													<source src="media/{{vid.video_url}}" type="video/mp4" />
+												</video>
+											</a>
+											<input type="hidden" value="{{vid.video_url}}" id="video_{{vid.video_id}}">
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-12 mb-10">
+								<form action="#" method="post" enctype="multipart/form-data" class="dropzone" id="videoPanel">
+									{% csrf_token %}
+								</form>
+							</div>
+							<div class="col-md-12">
+								<a href="property" class="btn btn-warning me-1">
+									<i class="fa fa-times"></i> Cancel
+								</a>
+								<button type="submit" name="btn_updatePropVideos" id="btn_updatePropVideos" class="btn btn-primary">
+									<i class="ti-save-alt"></i> Save
+								</button>
+							</div>
+						</div>
+					</div>
+				  </div>
+			  </div>
+		  </div>
+		  <!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+	  <!-- /.col -->
+</div>
+{% endblock %}
+{% block extracontent %}{% endblock %}
+{% block extrascripts %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+	var count;
+	Dropzone.options.myDropzone = 
+	{
+		url: "uploadPropImages?prop_id={{data.prop_id}}&csrfmiddlewaretoken="+document.getElementsByName('csrfmiddlewaretoken')[0].value,
+		autoProcessQueue: false,
+		acceptedFiles:".png,.jpg,.jpeg",
+		parallelUploads: 20,
+		init: function()
+		{
+			var submit = document.querySelector('#btn_updatePropImages');
+			mydropzone = this;
+			submit.addEventListener("click", function(){
+				$('#loading-modal').modal('show');
+				count= mydropzone.files.length;
+				if(count>0)
+				{
+					mydropzone.processQueue();
+				}
+			});
+			this.on("success", function(file,response){
+			   //alert(response);
+			   //showDocuments();
+			});
+			this.on("queuecomplete", function (file) {
+				$('#loading-modal').modal('hide');
+				this.removeAllFiles();
+				showDocuments();
+			});
+		}
+	};
+	function showDocuments()
+	{
+		var prop_id="{{data.prop_id}}";
+		$.ajax({
+			url: 'showPropImages',
+			type: 'POST',
+			data:{
+				prop_id:prop_id,
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+			}
+		})
+		.done(function(data){
+			var output="";
+			for(var i=0;i<data.length;i++)
+            {
+				output+='<div class="col-md-4 mb-10"><div style="position: relative;top: 0;left: 0;" class="mb-10"><a href="#" id="'+data[i].image_id+'" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deletePropImage" style="position: absolute;top: -10px;right: -7px;"><span class="fa fa-times"></span></a><div style="position: relative;top: 0;left: 0;"><img src="media/'+data[i].image_url+'"><input type="hidden" value="'+data[i].image_url+'" id="img_'+data[i].image_id+'"></div></div></div>';
+			}
+			$('.img_div').html(output);
+		})
+		.fail(function(){
+			swal({title:"Error",text:"Error Sending Request!",type:"error"});
+		});
+	}
+	$(document).on('click', '.deletePropImage', function(e)
+	{
+		e.preventDefault();
+		var uid = this.id;
+		var image_url=$("#img_"+uid).val();
+		
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You want to delete this image.",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.isConfirmed) 
+			{
+				$.ajax({
+					url: 'deletePropImage',
+					type: 'POST',
+					data:{
+						image_id:uid,
+						image_url:image_url,
+						csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+					},
+					dataType: 'html'
+				})
+				.done(function(data){
+					var ref_this = $("ul.nav-tabs li a.active");
+    				
+					if(ref_this.attr('href') == "#property")
+					{
+						$("#thumb_img").removeAttr("src");
+						$("#thumbnail_update").attr("id","thumbnail");
+						$(".thumb_list").html('\
+						<li><a href="#" id="setThumb" onclick="$(\'#thumbnail\').trigger(\'click\'); return false;">Set Elevation Image</a></li>')
+					}
+					else
+					{
+						Swal.fire('Success!','Image Deleted Successfully!','success');
+						showDocuments();
+					}
+				})
+				.fail(function(){
+					Swal.fire('Error!','Error Sending Request!','error');
+				});
+			}
+		})
+	});
+	function showRooms()
+	{
+		var prop_id="{{data.prop_id}}";
+		$.ajax({
+			url: 'showRooms',
+			type: 'POST',
+			data:{
+				prop_id:prop_id,
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+			}
+		})
+		.done(function(response){
+			var output="";
+			// alert(response.prop_rooms_lst)
+			// alert(response.data[0].room_id)
+			// console.log(response);
+			// console.log(response.data[0].room_id);
+			for(var i=0;i<response.data.length;i++)
+            {
+				output+='\
+					<div class="row mb-10">\
+						<div class="col-xl-4 col-12 form-group">\
+							<label class="form-label">Configuration</label>\
+							<select class="form-control" id="prop_rooms_'+response.data[i].room_id+'" style="width:100%" required>\
+								<option value="">select</option>';
+								for(j=0;j<response.prop_rooms_lst.length;j++)
+								{
+									output+='<option value="'+response.prop_rooms_lst[j]+'" ';
+									if(response.prop_rooms_lst[j] == response.data[i].prop_rooms) 
+									{
+										output+='selected';
+									} 
+									output+='>'+response.prop_rooms_lst[j]+'</option>';
+								}								
+				output+='</select>\
+						</div>\
+						<div class="col-xl-4 col-12 form-group">\
+							<label class="form-label">Carpet Area&nbsp;<span class="text-secondary">(sqft)</span></label>\
+							<input type="number" class="form-control" id="prop_carpet_area_'+response.data[i].room_id+'" value="'+response.data[i].prop_carpet_area+'" placeholder="Enter your property area in sqft">\
+						</div>\
+						<div class="col-xl-4 col-12 form-group">\
+							<label class="form-label">Price</label>\
+							<input type="number" class="form-control" id="prop_price_'+response.data[i].room_id+'" value="'+response.data[i].prop_price+'" placeholder="Enter your property price">\
+						</div>\
+						<div class="col-xl-4 col-12 form-group">\
+							<input type="hidden" id="old_blue_print_'+response.data[i].room_id+'" value="'+response.data[i].blue_print+'">\
+							<label class="form-label">Change Layout Blue Print';
+							if(response.data[i].blue_print != '')
+							{
+								output+=' <a href="media/'+response.data[i].blue_print+'" target="_blank">View Image</a>';
+							}
+				output+='</label>\
+							<input type="file" class="form-control" id="blue_print_'+response.data[i].room_id+'">\
+						</div>\
+						<div class="col-xl-4 col-12 form-group">\
+							<input type="hidden" id="old_threed_print_'+response.data[i].room_id+'" value="'+response.data[i].threed_print+'">\
+							<label class="form-label">Change Layout 3D Print';
+							if(response.data[i].threed_print != '')
+							{
+								output+=' <a href="media/'+response.data[i].threed_print+'" target="_blank">View Image</a>';
+							}
+				output+='</label>\
+							<input type="file" class="form-control" id="threed_print_'+response.data[i].room_id+'">\
+						</div>\
+						<div class="col-xl-4 col-12 form-group">\
+							<label class="form-label" style="display: block;">&nbsp;</label>\
+							<button type="button" data-id="'+response.data[i].room_id+'" id="'+response.data[i].room_id+'" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-primary updateRoom" title="Update Room Configuration"><span class="fa fa-save"></span></button>&nbsp;&nbsp;\
+							<button type="button" data-id="'+response.data[i].room_id+'" id="'+response.data[i].room_id+'" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteRoom" title="Delete Room Configuration"><span class="fa fa-trash"></span></button>\
+						</div>\
+					</div>\
+					<hr class="my-15">\
+				';
+			}
+			$('.room_data').html(output);
+		})
+		.fail(function(){
+			swal({title:"Error",text:"Error Sending Request!",type:"error"});
+		});
+	}
+	var count1;
+	Dropzone.options.floorPlan = 
+	{
+		url: "uploadFloorPlans?prop_id={{data.prop_id}}&csrfmiddlewaretoken="+document.getElementsByName('csrfmiddlewaretoken')[0].value,
+		autoProcessQueue: false,
+		acceptedFiles:".png,.jpg,.jpeg",
+		parallelUploads: 20,
+		init: function()
+		{
+			var submit = document.querySelector('#btn_updateFloorPlans');
+			mydropzone1 = this;
+			submit.addEventListener("click", function(){
+				$('#loading-modal').modal('show');
+				count1= mydropzone1.files.length;
+				if(count1>0)
+				{
+					mydropzone1.processQueue();
+				}
+			});
+			this.on("success", function(file,response){
+			   //alert(response);
+			   //showDocuments();
+			});
+			this.on("queuecomplete", function (file) {
+				$('#loading-modal').modal('hide');
+				this.removeAllFiles();
+				showFloorPlans();
+			});
+		}
+	};
+	function showFloorPlans()
+	{
+		var prop_id="{{data.prop_id}}";
+		$.ajax({
+			url: 'showFloorPlans',
+			type: 'POST',
+			data:{
+				prop_id:prop_id,
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+			}
+		})
+		.done(function(data){
+			var output="";
+			for(var i=0;i<data.length;i++)
+            {
+				output+='<div class="col-md-4 mb-10"><div style="position: relative;top: 0;left: 0;" class="mb-10"><a href="#" id="'+data[i].image_id+'" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteFloorPlans" style="position: absolute;top: -10px;right: -7px;"><span class="fa fa-times"></span></a><div style="position: relative;top: 0;left: 0;"><img src="media/'+data[i].image_url+'"><input type="hidden" value="'+data[i].image_url+'" id="floor_'+data[i].image_id+'"></div></div></div>';
+			}
+			$('.floor_div').html(output);
+		})
+		.fail(function(){
+			swal({title:"Error",text:"Error Sending Request!",type:"error"});
+		});
+	}
+	$(document).on('click', '.deleteFloorPlans', function(e)
+	{
+		e.preventDefault();
+		var uid = this.id;
+		var image_url=$("#floor_"+uid).val();
+		
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You want to delete this floor plan.",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.isConfirmed) 
+			{
+				$.ajax({
+					url: 'deleteFloorPlans',
+					type: 'POST',
+					data:{
+						image_id:uid,
+						image_url:image_url,
+						csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+					},
+					dataType: 'html'
+				})
+				.done(function(data){
+					Swal.fire('Success!','Floor Plan Deleted Successfully!','success');
+					showFloorPlans();
+				})
+				.fail(function(){
+					Swal.fire('Error!','Error Sending Request!','error');
+				});
+			}
+		})
+	});
+	var count2;
+	Dropzone.options.videoPanel = 
+	{
+		url: "uploadVideos?prop_id={{data.prop_id}}&csrfmiddlewaretoken="+document.getElementsByName('csrfmiddlewaretoken')[0].value,
+		autoProcessQueue: false,
+		acceptedFiles:".mp4",
+		parallelUploads: 4,
+		init: function()
+		{
+			var submit = document.querySelector('#btn_updatePropVideos');
+			mydropzone2 = this;
+			submit.addEventListener("click", function(){
+				$('#loading-modal').modal('show');
+				count2= mydropzone2.files.length;
+				if(count2>0)
+				{
+					mydropzone2.processQueue();
+				}
+			});
+			this.on("success", function(file,response){
+			   //alert(response);
+			   //showDocuments();
+			});
+			this.on("queuecomplete", function (file) {
+				$('#loading-modal').modal('hide');
+				this.removeAllFiles();
+				showVideos();
+			});
+		}
+	};
+	function showVideos()
+	{
+		var prop_id="{{data.prop_id}}";
+		$.ajax({
+			url: 'showVideos',
+			type: 'POST',
+			data:{
+				prop_id:prop_id,
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+			}
+		})
+		.done(function(data){
+			var output="";
+			for(var i=0;i<data.length;i++)
+            {
+				output+='\
+				<div class="col-md-4 mb-10">\
+					<div style="position: relative;top: 0;left: 0;" class="mb-10">\
+						<a href="#" id="'+data[i].video_id+'" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-danger deleteVideo" style="position: absolute;top: -10px;right: -7px;"><span class="fa fa-times"></span></a>\
+						<div style="position: relative;top: 0;left: 0;">\
+							<a href="#" id="video1">\
+								<video width="100%" controls>\
+									<source src="media/'+data[i].video_url+'" type="video/mp4" />\
+								</video>\
+							</a>\
+							<input type="hidden" value="'+data[i].video_url+'" id="video_'+data[i].video_id+'">\
+						</div>\
+					</div>\
+				</div>\
+				';
+			}
+			$('.video_div').html(output);
+		})
+		.fail(function(){
+			swal({title:"Error",text:"Error Sending Request!",type:"error"});
+		});
+	}
+	$(document).on('click', '.deleteVideo', function(e)
+	{
+		e.preventDefault();
+		var uid = this.id;
+		var video_url=$("#video_"+uid).val();
+		
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You want to delete this video.",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.isConfirmed) 
+			{
+				$.ajax({
+					url: 'deleteVideo',
+					type: 'POST',
+					data:{
+						video_id:uid,
+						video_url:video_url,
+						csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+					},
+					dataType: 'html'
+				})
+				.done(function(data){
+					Swal.fire('Success!','Video Deleted Successfully!','success');
+					showVideos();
+				})
+				.fail(function(){
+					Swal.fire('Error!','Error Sending Request!','error');
+				});
+			}
+		})
+	});
+</script>
+{% endblock %}

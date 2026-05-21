@@ -1,0 +1,73 @@
+{% extends 'frontend/base.html'%}
+{% load static %}
+{% block content%}
+<div class="page-banner-simple bg-secondary py-40 pb-30 pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="banner-title text-white">Contact Us</h3>
+                <span class="banner-tagline font-medium text-white">Get in touch with us! We are waiting to serve your needs.</span> 
+            </div>
+        </div>
+    </div>
+</div>   
+<div class="full-row pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 order-md-2">
+                <h4 class="down-line mb-5">Get In Touch</h4>
+                <!-- <p>Nullam vel enim risus. Integer rhoncus hendrerit sem egestas porttitor.</p> -->
+                <div class="mb-3">
+                    <ul>
+                        <li class="mb-3">
+                            <h6 class="mb-0">Office Address :</h6> 201, Samruddhi Plaza, 2nd Floor, Mira Bhayandar Rd, Mira Road, Mumbai, Maharashtra 401107.
+                        </li>
+                         <li class="mb-3">
+                            <h6>Contact Number :</h6> <a href="">+91 79770 37145</a>, <a href="">+91 93265 07334</a>
+                        </li>
+                        <!--<li class="mb-3">-->
+                        <!--    <h6>Contact Number :</h6> <a href="">+91 98205 60902</a>-->
+                        <!--</li>-->
+                        <li class="mb-3">
+                            <h6>Email Address :</h6><a href=""> info@deltayards.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <h5 class="mb-2">Career Info</h5>
+                <p>If you’re interested in employment opportunities at Unicoder, please email us:<br> <a href="#">support@unicoderbd.com</a></p> -->
+            </div>
+            <div class="col-md-7 order-md-1">
+                <h4 class="down-line mb-5">Send Message</h4>
+                <div class="form-simple mb-5">
+                    <div id="response"></div>
+                    <form id="frm_contact" action="#" method="post" class="cmxform">
+                        {% csrf_token%}
+                        <input type="text" name="field" id="field_contact" class="field" value="">
+                        <div class="row">
+                            <div class="col-md-6 mb-20">
+                                <label class="mb-2">Full Name:</label>
+                                <input type="text" class="form-control bg-gray mb-2"  name="name" id="name" required>
+                            </div>
+                            <div class="col-md-6 mb-20">
+                                <label class="mb-2">Your Email:</label>
+                                <input type="email" class="form-control bg-gray mb-2" name="email" id="email" required>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                <label class="mb-2">Contact Number:</label>
+                                <input type="text" class="form-control bg-gray mb-2" name="contact_no" id="contact_no" required>
+                            </div>
+                            <div class="col-md-12 mb-20">
+                                <label class="mb-2">Message:</label>
+                                <textarea class="form-control bg-gray " name="message" rows="2" id="message" required></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" value="submit" id="btn_contact" name="btn_contact" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

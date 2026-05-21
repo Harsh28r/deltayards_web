@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from themetrading.com/html/fresher/demo/dashboard/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 07:59:19 GMT -->
+<head>
+	<!--===== Meta Tag =====-->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="Fresher - Real Estate Template">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="business, property, directory, listing, real estate, Real estate template, realtor, developer, apartment, broker, real estate agency, map, company, agent, rent house">
+	<meta name="author" content="root">
+	<!--CSs Links
+	==================================================================-->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/color.css">
+	<link rel="stylesheet" href="css/color.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="fonts/flaticon.css">
+	<!--====================================================
+	Typography links 
+	Import Google Fonts
+	======================================================-->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  	
+  	<!-- Title -->
+	<title>Fresher - Real Estate Template</title>
+	
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+  
+</head>
+<body oncontextmenu="return true;">
+<!-- Start Back to top
+=========================================================================-->
+<div id="scroll" style="display: none;"><i class="fa fa-angle-up"></i></div>
+<!-- End Back to top
+=========================================================================-->
+<div class="wrapper">
+	<!-- Header Start
+	=========================================================================-->
+    <nav id="sidebar" class="bg-secondary">
+        <div class="sidebar-header">
+            <a href="../index.html"><img src="../images/logo/logo-white.png" alt="image"></a>
+        </div>
+
+        <ul class="list-unstyled components pt-30">
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fas fa-object-ungroup"></i> <span>Dashboard</span></a>
+                <ul class="collapse list-unstyled submenu show" id="homeSubmenu">
+                    <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li><a href="analytics.html"><i class="fa fa-line-chart"></i> <span>Analytics</span></a></li>
+                    <li><a href="customers.html"><i class="fa fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="message.html"><i class="fa fa-envelope"></i> <span>Message</span></a></li>
+                    <li><a href="comment.html"><i class="fa fa-comments"></i><span>Comment</span></a></li>
+                    <li><a href="review.html"><i class="fa fa-star"></i> <span>Review</span></a></li>
+                    <li><a href="booking-request.html"><i class="fa fa-calendar"></i> <span>Booking Request</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>Manage Property</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu">
+                    <li><a href="listing-property.html"><i class="fa fa-list-alt"></i> <span>Listing Property</span></a></li>
+                    <li><a href="favorite-property.html"><i class="fa fa-star-o"></i> <span>Favorite Property</span></a></li>
+                    <li><a href="purchased-property.html"><i class="fa fa-dollar"></i> <span>Purchased Property</span></a></li>
+                    <li><a href="submit-property.html"><i class="fa fa-space-shuttle"></i> <span>Submit Property</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>Account Details</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu2">
+                    <li><a href="personal-info.html"><i class="fa fa-list-alt"></i> <span>Personal Information</span></a></li>
+                    <li><a href="profile-setting.html"><i class="fa fa-cogs"></i> <span>Profile Settings</span></a></li>
+                    <li><a href="payment-invoice.html"><i class="fa fa-file-archive-o"></i> <span>Payment & Invoice</span></a></li>
+                    <li><a href="change-password.html"><i class="fa fa-lock"></i> <span>Change Password</span></a></li>
+                    <li><a href="social-media-setting.html"><i class="fa fa-space-shuttle"></i> <span>Social Media Settings</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-copy"></i><span>About Item</span></a>
+                <ul class="collapse list-unstyled submenu" id="pageSubmenu3">
+                    <li><a href="recent-item.html"><i class="fa fa-list-alt"></i> <span>Recent Items</span></a></li>
+                    <li><a href="featured-item.html"><i class="fa fa-star-o"></i> <span>Featured Items</span></a></li>
+                    <li><a href="offers.html"><i class="fa fa-dollar"></i> <span>Special Offers</span></a></li>
+                    <li><a href="tax-info.html"><i class="fa fa-star-o"></i> <span>Item Tax Information</span></a></li>
+                </ul>
+            </li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out"></i> <span>Logout</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="bg-light">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="py-5 px-15 color-white bg-primary">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mobile ml-auto icon-white">
+                        <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More <i class="fa fa-angle-down"></i></a>
+							<ul class="dropdown-menu shadow"> 
+								<li><a class="dropdown-item" href="#">Option One</a></li> 
+								<li><a class="dropdown-item" href="#">Option Two</a></li>
+								<li><a class="dropdown-item" href="#">Option Three</a></li>
+								<li><a class="dropdown-item" href="#">Option Four</a></li> 
+								<li><a class="dropdown-item" href="#">Option Five</a></li>
+							</ul>
+						</li>
+						<li><button class="btn btn-primary h-100">Submit Property</button></li>
+						<li><a href="#"><i class="fa fa-bell"></i> <sup class="color-primary">(9)</sup></a></li>
+						<li><a href="#"><i class="fa fa-comments"></i> <sup class="color-primary">(18)</sup></a></li>
+                    </ul>
+                    <div class="dashboard-admin py-10">
+						<ul class="nav navbar-nav ml-auto position-relative">
+                            <li class="nav-item dropdown">
+								<div class="admin-nav">
+									<div class="d-table float-left text-right pr-15">
+										<h6 class="admin color-white">George Jr.</h6>
+										<span class="color-primary">Admin</span>
+									</div>
+									<div class="float-left"><img src="images/admin.jpg" alt="admin-image"></div>
+								</div>
+								<ul class="admin-dropdown shadow bg-white py-5 icon-primary"> 
+									<li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li> 
+									<li><a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Inbox</a></li>
+									<li><a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting</a></li>
+									<li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+								</ul>
+							</li>
+                        </ul>
+					</div>
+                </div>
+            </div>
+        </nav>
+        <!-- Header End
+		=========================================================================-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-7">
+					<div class="dashboard-title mt-15 mb-30">
+						<h2 class="title color-secondary">Dashboard</h2>
+						<p>Welcome to Fresher Property Admin</p>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-5">
+					<div class="admin-setting mt-30">
+						<ul>
+							<li><a class="ml-5" href="#"><i class="fa fa-cog"></i></a></li>
+							<li><a href="#"><i class="fa fa-refresh"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-12">
+					<div class="alert-area">
+						<div class="bs-example"> 
+						    <!-- Success Alert -->
+						    <div class="alert alert-success alert-dismissible fade show">
+						        <strong>Success!</strong> Your message has been sent successfully.
+						        <button type="button" class="close" data-dismiss="alert">&times;</button>
+						    </div>
+						    <!-- Error Alert -->
+						    <div class="alert alert-danger alert-dismissible fade show">
+						        <strong>Error!</strong> A problem has been occurred while submitting your data.
+						        <button type="button" class="close" data-dismiss="alert">&times;</button>
+						    </div>
+						    <!-- Warning Alert -->
+						    <div class="alert alert-warning alert-dismissible fade show">
+						        <strong>Warning!</strong> There was a problem with your network connection.
+						        <button type="button" class="close" data-dismiss="alert">&times;</button>
+						    </div>
+						    <!-- Info Alert -->
+						    <div class="alert alert-info alert-dismissible fade show">
+						        <strong>Info!</strong> Please read the comments carefully.
+						        <button type="button" class="close" data-dismiss="alert">&times;</button>
+						    </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-12">
+					<div class="about-property flat-large color-secondary mt-15">
+						<div class="row">
+							<div class="col-xl-3">
+								<div class="about-property-item" style="background-color: #ffd4ff">
+									<i class="flaticon-town mr-10"></i>
+									<span class="number color-secondary">3562</span>
+									<div class="mt-10"><p>Total Properties</p></div>
+								</div>
+							</div>
+							<div class="col-xl-3">
+								<div class="about-property-item lg-mt-30" style="background-color: #ffdab5">
+									<i class="flaticon-house mr-10"></i>
+									<span class="number color-secondary">1254</span>
+									<div class="mt-10"><p>Properties Rented</p></div>
+								</div>
+							</div>
+							<div class="col-xl-3">
+								<div class="about-property-item lg-mt-30" style="background-color: #a0b4ff">
+									<i class="flaticon-sale mr-10"></i>
+									<span class="number color-secondary">865</span>
+									<div class="mt-10"><p>Properties Sold</p></div>
+								</div>
+							</div>
+							<div class="col-xl-3">
+								<div class="about-property-item lg-mt-30" style="background-color: #b7fffa">
+									<i class="flaticon-loan mr-10"></i>
+									<span class="number color-secondary">1443</span>
+									<div class="mt-10"><p>Available Properties</p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-12">
+					<div class="progress-circle position-relative bg-white p-50 mt-15">
+						<div class="mb-50">
+							<h3 class="inner-title color-secondary">Earning Increment Comparison</h3>
+							<span class="timeline">Last 4 Years Improvement</span>
+						</div>
+						<div class="edit-info">
+							<ul>
+		                        <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle color-secondary" href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+									<ul class="dropdown-menu shadow"> 
+										<li><a class="dropdown-item" href="#">Edit</a></li> 
+										<li><a class="dropdown-item" href="#">Delete</a></li>
+									</ul>
+								</li>
+		                    </ul>
+						</div>
+						<div class="row">
+							<div class="col-xl-3 col-lg-6 col-md-6">
+								<div class="circle_percent" data-percent="85">
+							    	<div class="circle_inner">
+							        	<div class="round_per"></div>
+							        </div>
+							    </div>
+							</div>
+							<div class="col-xl-3 col-lg-6 col-md-6">
+							    <div class="circle_percent mt-sm-30" data-percent="68">
+							    	<div class="circle_inner">
+							        	<div class="round_per"></div>
+							        </div>
+							    </div>
+							</div>
+							<div class="col-xl-3 col-lg-6 col-md-6">
+							    <div class="circle_percent lg-mt-30" data-percent="81">
+							    	<div class="circle_inner">
+							        	<div class="round_per"></div>
+							        </div>
+							    </div>
+							</div>
+							<div class="col-xl-3 col-lg-6 col-md-6">
+							    <div class="circle_percent lg-mt-30" data-percent="92">
+							    	<div class="circle_inner">
+							        	<div class="round_per"></div>
+							        </div>
+							    </div>
+								<script src="../../../../../cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-7">
+					<div class="earning-comparison p-50 mt-30 bg-white position-relative">
+						<h3 class="inner-title color-secondary mb-50">Submitted Properties Comparison</h3>
+						<div class="edit-info">
+							<ul>
+		                        <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle color-secondary" href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+									<ul class="dropdown-menu shadow"> 
+										<li><a class="dropdown-item" href="#">Edit</a></li> 
+										<li><a class="dropdown-item" href="#">Delete</a></li>
+									</ul>
+								</li>
+		                    </ul>
+						</div>
+						<div class="chart-container-1">
+							<canvas id="line-chart"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-5">
+					<div class="top-countries p-50 mt-30 bg-white position-relative">
+						<h3 class="inner-title color-secondary mb-50">Most Popular Countries</h3>
+						<div class="edit-info">
+							<ul>
+		                        <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle color-secondary" href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+									<ul class="dropdown-menu shadow"> 
+										<li><a class="dropdown-item" href="#">Edit</a></li> 
+										<li><a class="dropdown-item" href="#">Delete</a></li>
+									</ul>
+								</li>
+		                    </ul>
+						</div>
+						<canvas id="oilChart" width="600" height="400"></canvas>
+					</div>
+				</div>
+			    <div class="col-xl-6">
+					<div class="analytics p-50 mt-30 bg-white position-relative">
+						<h3 class="inner-title color-secondary mb-50">Visitors Appearance</h3>
+						<div class="edit-info">
+							<ul>
+		                        <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle color-secondary" href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+									<ul class="dropdown-menu shadow"> 
+										<li><a class="dropdown-item" href="#">Edit</a></li> 
+										<li><a class="dropdown-item" href="#">Delete</a></li>
+									</ul>
+								</li>
+		                    </ul>
+						</div>
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="chart-container p-50 mt-30 bg-white">
+					    <canvas id="chart"></canvas>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="accordion mt-30" id="accordionExample">
+						<div class="card">
+						    <div class="card-header p-0" id="headingOne">
+						      <h2 class="mb-0">
+						        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          Recent Comments
+						        </button>
+						      </h2>
+						    </div>
+
+						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						        <div class="card-body icon-primary">
+							        <div class="comment-by d-table w-100">
+								       	<div class="bg-light text-center px-15 py-30 d-table float-left mr-30">
+									       	<img src="images/admin.jpg" alt="image">
+									       	<h5 class="inner-title color-secondary mt-15">Carlos Kary</h5>
+									       	<p>Cheif Agent, SellHome</p>
+									       	<ul class="rating icon-primary d-table mx-auto">
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       	</ul>
+								        </div>
+								        <div class="comment-txt">
+								        	<div class="mb-20">
+									        	<h5 class="inner-title color-secondary"><span class="color-gray-light mr-5">Comment On:</span> Villa on Grand Avenue</h5>
+									        	<span><i class="fa fa-map-marker mr-5"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+									        </div>
+									        <p>Faucibus fermentum. Convallis hendrerit. Elit congue suscipit auctor velus hac nisi congue facilisi erat mus nunc tempus. Bibendum felis nostralogy velit. Nisl suscipit ultrices mollis amet.</p>
+									        <a class="color-primary mt-10" href="#">Continue Reading...</a>
+									        <ul class="admin-permision color-secondary-a d-table mt-15">
+									        	<li><a href="#">Approve</a></li>
+									        	<li><a href="#">Delete</a></li>
+									        	<li><a href="#">Spam</a></li>
+									        	<li><a href="#">View</a></li>
+									        </ul>
+								        </div>
+							        </div>
+							        <div class="comment-by d-table w-100 pt-30 mt-30" style="padding-left: 70px">
+								       	<div class="bg-gray text-center px-15 py-30 d-table float-left mr-30">
+									       	<img src="images/admin.jpg" alt="image">
+									       	<h5 class="inner-title color-secondary mt-15">Carlos Kary</h5>
+									       	<p>Cheif Agent, SellHome</p>
+									       	<ul class="rating icon-primary d-table mx-auto">
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       	</ul>
+								        </div>
+								        <div class="comment-txt">
+								        	<div class="mb-20">
+									        	<h5 class="inner-title color-secondary"><span class="color-gray-light mr-5">Comment On:</span> Villa on Grand Avenue</h5>
+									        	<span><i class="fa fa-map-marker mr-5"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+									        </div>
+									        <p>Faucibus fermentum. Convallis hendrerit. Elit congue suscipiter auctor vel hac nisi congue facilisi erat mus nunc tempus. Biben dum felis nostra velit. Nisl suscipit ultrices mollis amet.</p>
+									        <a class="color-primary mt-10" href="#">Continue Reading...</a>
+									        <ul class="admin-permision color-secondary-a d-table mt-15">
+									        	<li><a href="#">Approve</a></li>
+									        	<li><a href="#">Delete</a></li>
+									        	<li><a href="#">Spam</a></li>
+									        	<li><a href="#">View</a></li>
+									        </ul>
+								        </div>
+							        </div>
+							        <div class="comment-by d-table w-100 pt-30 mt-30">
+								       	<div class="bg-gray text-center px-15 py-30 d-table float-left mr-30">
+									       	<img src="images/admin.jpg" alt="image">
+									       	<h5 class="inner-title color-secondary mt-15">Carlos Kary</h5>
+									       	<p>Cheif Agent, SellHome</p>
+									       	<ul class="rating icon-primary d-table mx-auto">
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       		<li><i class="fa fa-star"></i></li>
+									       	</ul>
+								        </div>
+								        <div class="comment-txt">
+								        	<div class="mb-20">
+									        	<h5 class="inner-title color-secondary"><span class="color-gray-light mr-5">Comment On:</span> Villa on Grand Avenue</h5>
+									        	<span><i class="fa fa-map-marker mr-5"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+									        </div>
+									        <p>Faucibus fermentum. Convallis hendrerit. Elit congue suscipit auctor velus hac nisi congue facilisi erat mus nunc tempus. Bibendum felis nostralogy velit. Nisl suscipit ultrices mollis amet.</p>
+									        <a class="color-primary mt-10" href="#">Continue Reading...</a>
+									        <ul class="admin-permision color-secondary-a d-table mt-15">
+									        	<li><a href="#">Approve</a></li>
+									        	<li><a href="#">Delete</a></li>
+									        	<li><a href="#">Spam</a></li>
+									        	<li><a href="#">View</a></li>
+									        </ul>
+								        </div>
+							        </div>
+						        </div>
+						    </div>
+						</div>
+					</div>
+					<!-- Start Map 
+					==================================================================-->
+					<div id="map" class="map-canvas mt-30"></div>
+				</div>
+				<div class="col-xl-6">
+					<div class="accordion mt-30" id="accordionExample2">
+						<div class="card">
+						    <div class="card-header p-0" id="headingTwo">
+						      <h2 class="mb-0">
+						        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+						          Recent Property
+						        </button>
+						      </h2>
+						    </div>
+
+						    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+						        <div class="card-body icon-primary">
+									<div class="recent-property bg-white">
+										<div class="recent-property-item">
+											<div class="mr-20"><img src="../images/property/1.jpg" alt="image"></div>
+											<div class="property-description">
+												<h5 class="inner-title color-secondary">Villa on Grand Avenue</h5>
+												<span class="icon-primary"><i class="fa fa-map-marker mr-5 mb-15"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+												<div class="date-rating">
+													<ul class="rating icon-primary">
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       	</ul>
+											       	<span class="float-right">11 Nov, 2020</span>
+											    </div>
+										       	<div class="buttons mt-15">
+										       		<a class="btn btn-primary mr-5" href="#">For Rent</a>
+										       		<a class="btn btn-primary" href="#">Edit</a>
+										       	</div>
+									       	</div>
+										</div>
+										<div class="recent-property-item mt-30">
+											<div class="mr-20"><img src="../images/property/1.jpg" alt="image"></div>
+											<div class="property-description">
+												<h5 class="inner-title color-secondary">Villa on Grand Avenue</h5>
+												<span class="icon-primary"><i class="fa fa-map-marker mr-5 mb-15"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+												<div class="date-rating">
+													<ul class="rating icon-primary">
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       	</ul>
+											       	<span class="float-right">11 Nov, 2020</span>
+											    </div>
+										       	<div class="buttons mt-15">
+										       		<a class="btn btn-primary mr-5" href="#">For Rent</a>
+										       		<a class="btn btn-primary" href="#">Edit</a>
+										       	</div>
+									       	</div>
+										</div>
+										<div class="recent-property-item mt-30">
+											<div class="mr-20"><img src="../images/property/1.jpg" alt="image"></div>
+											<div class="property-description">
+												<h5 class="inner-title color-secondary">Villa on Grand Avenue</h5>
+												<span class="icon-primary"><i class="fa fa-map-marker mr-5 mb-15"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+												<div class="date-rating">
+													<ul class="rating icon-primary">
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       	</ul>
+											       	<span class="float-right">11 Nov, 2020</span>
+											    </div>
+										       	<div class="buttons mt-15">
+										       		<a class="btn btn-primary mr-5" href="#">For Rent</a>
+										       		<a class="btn btn-primary" href="#">Edit</a>
+										       	</div>
+									       	</div>
+										</div>
+										<div class="recent-property-item mt-30">
+											<div class="mr-20"><img src="../images/property/1.jpg" alt="image"></div>
+											<div class="property-description">
+												<h5 class="inner-title color-secondary">Villa on Grand Avenue</h5>
+												<span class="icon-primary"><i class="fa fa-map-marker mr-5 mb-15"></i> 40 Tower Avenue, Melbourne, Australia.</span>
+												<div class="date-rating">
+													<ul class="rating icon-primary">
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       		<li><i class="fa fa-star"></i></li>
+											       	</ul>
+											       	<span class="float-right">11 Nov, 2020</span>
+											    </div>
+										       	<div class="buttons mt-15">
+										       		<a class="btn btn-primary mr-5" href="#">For Rent</a>
+										       		<a class="btn btn-primary" href="#">Edit</a>
+										       	</div>
+									       	</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					    <div class="row">
+					    	<div class="col-xl-6">
+					    		<div class="today-update bg-white p-30 mt-30">
+					    			<div class="today-update-item">
+						    			<div class="mb-5 d-inline-block w-100">
+							    			<h6 class="inner-title color-secondary float-left">Product Viewed</h6>
+							    			<span class="float-right">865/today</span>
+							    		</div>
+						    			<div class="progress">
+											<div class="progress-bar" style="width:70%"></div>
+										</div>
+									</div>
+									<div class="today-update-item mt-30">
+						    			<div class="mb-5 d-inline-block w-100">
+							    			<h6 class="inner-title color-secondary float-left">Product Listed</h6>
+							    			<span class="float-right">6,536 Units</span>
+							    		</div>
+						    			<div class="progress">
+											<div class="progress-bar" style="width:70%"></div>
+										</div>
+									</div>
+					    		</div>
+					    		<div class="recent-activity bg-white p-30 mt-30">
+					    			<h5 class="inner-title color-secondary mb-30">Recent Activity</h5>
+					    			<ul class="icon-primary">
+                                        <li>
+                                        	<h6 class="color-secondary mb-5 d-table">New property submitted for Sale.</h6>
+                                        	<span> <i class="fa fa-calendar mr-5"></i> Nov 27th, 10:12 am</span>
+                                        </li>
+                                        <li>
+                                        	<h6 class="color-secondary mb-5 d-table">Get new message from customer</h6>
+                                        	<span><i class="fa fa-calendar mr-5"></i> Nov 21th, 09:12 pm</span>
+                                        </li>
+                                        <li>
+                                        	<h6 class="color-secondary mb-5 d-table">A new request for booking</h6>
+                                        	<span><i class="fa fa-calendar mr-5"></i> Oct 18th, 12:12 pm</span>
+                                        </li>
+                                        <li>
+                                        	<h6 class="color-secondary mb-5 d-table">Payment received from customer invoice no 560408</h6>
+                                        	<span><i class="fa fa-calendar mr-5"></i> Sep 15th, 05:45 pm</span>
+                                        </li>
+                                        <li>
+                                        	<h6 class="color-secondary mb-5 d-table">Admin replied on a comment</h6>
+                                        	<span><i class="fa fa-calendar mr-5"></i> June 15th, 03:32 pm</span>
+                                        </li>
+                                    </ul>
+					    		</div>
+					    	</div>
+					    	<div class="col-xl-6">
+								<div class="accordion mt-30" id="accordionExample3">
+									<div class="card">
+									    <div class="card-header p-0" id="headingThree">
+									      <h2 class="mb-0">
+									        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+									          Customer Review
+									        </button>
+									      </h2>
+									    </div>
+									    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample3">
+									        <div class="card-body icon-primary">
+									        	<div class="review-item">
+									        		<div class="review-img">
+									        			<img src="images/admin.jpg">
+										        		<h5 class="inner-title">Ariana Jessica</h5>
+										        		<ul class="rating">
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       	</ul>
+												       	<span class="mx-15">|</span>
+												       	<span>15min ago</span>
+												    </div>
+												    <div class="review-text d-inline-block mt-15">
+												    	<p>Nunc neque mollis imperdiet sapien ultricies. Eget, habitant nulla aliquam integer massa ut placerat dignissim sollicitudin.</p>
+												    </div>
+									        	</div>
+									        	<div class="review-item pt-20 mt-20">
+									        		<div class="review-img">
+									        			<img src="images/admin.jpg">
+										        		<h5 class="inner-title">Ariana Jessica</h5>
+										        		<ul class="rating">
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       	</ul>
+												       	<span class="mx-15">|</span>
+												       	<span>15min ago</span>
+												    </div>
+												    <div class="review-text d-inline-block mt-15">
+												    	<p>Nunc neque mollis imperdiet sapien ultricies. Eget, habitant nulla aliquam integer massa ut placerat dignissim sollicitudin.</p>
+												    </div>
+									        	</div>
+									        	<div class="review-item pt-20 mt-20">
+									        		<div class="review-img">
+									        			<img src="images/admin.jpg">
+										        		<h5 class="inner-title">Ariana Jessica</h5>
+										        		<ul class="rating">
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       		<li><i class="fa fa-star"></i></li>
+												       	</ul>
+												       	<span class="mx-15">|</span>
+												       	<span>15min ago</span>
+												    </div>
+												    <div class="review-text d-inline-block mt-15">
+												    	<p>Nunc neque mollis imperdiet sapien ultricies. Eget, habitant nulla aliquam integer massa ut placerat dignissim sollicitudin.</p>
+												    </div>
+									        	</div>
+									        	<a class="btn btn-primary d-block mt-20" href="review.html">See All Reviews</a>
+									        </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="copyright py-15 bg-secondary text-center d-table w-100">
+	<div class="row">
+		<div class="col-xl-12">
+			<span class="color-white">Fresher @ 2020. All Rights Reserved.</span>
+		</div>
+	</div>
+</div>
+
+<!-- jquery Links
+==================================================================-->
+  <script src="../js/jquery-v3.4.1.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/wow.js"></script>
+  <script src="js/Chart2.5.0.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVVUxeZqpBLv-jrgsQO1XQ7wvBS9mlRo"></script>
+  <script src="js/map.scripts.js"></script>
+ 	<script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <script>
+    	$(document).ready(function(){
+		  $('.admin-nav').click(function(){
+		    $('.admin-dropdown').slideToggle();
+		  });
+		});
+    </script>
+</body>
+
+<!-- Mirrored from themetrading.com/html/fresher/demo/dashboard/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 07:59:20 GMT -->
+</html>

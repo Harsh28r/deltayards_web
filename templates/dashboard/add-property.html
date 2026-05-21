@@ -1,0 +1,296 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Add Property Page"}}{% endblock %}
+
+{% block cntrl %}ng-controller="PropertyController"{% endblock %}
+{% block cntrl-id %}{{"PropertyController"}}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Property"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}
+<a href="property" class="waves-effect waves-light btn btn-link text-primary mb-5 pull-right"><i class="fa fa-building"></i> Property List</a>
+{% endblock %}
+
+{% block content %}
+<form action="#" name="frm_addProperty" id="frm_addProperty" method="post">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-xl-12 col-12">
+			<div class="box bx box-shadowed">
+				<div class="box-body prop-body">
+					<h4 class="box-title text-danger mb-0">Property Description</h4>
+					<hr class="my-15">
+					<!-- <div class="form-group mb-10">
+						<label class="form-label">Property Title</label>
+						<input type="text" class="form-control" name="prop_title" id="prop_title" placeholder="Enter your property title" required>
+					</div> -->
+					<div class="row">
+						<div class="col-xl-5 col-12 form-group">
+							<label class="form-label">Project Name<span class="error">*</span></label>
+							<input type="text" class="form-control" name="project_name" id="project_name" placeholder="Enter Project Name" required>
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">CODE Name<span class="error">(If Any)</span></label>
+							<input type="text" class="form-control" name="code_name" id="code_name" placeholder="Enter CODE Name">
+						</div>
+						<div class="col-xl-3 col-12 form-group">
+							<label class="form-label">Type</label>
+							<!-- <select class="form-control select2" name="prop_type" id="prop_type">
+								<option value="">select</option>
+								<option>Flat</option>
+								<option>Commercial</option>
+								<option>Apartment</option>
+								<option>Lot</option>
+								<option>Garage</option>
+							</select> -->
+							<select class="form-control select2" name="prop_type" id="prop_type">
+								<!-- <option value="">select</option> -->
+								{% for pt in prop_type_lst %}
+								<option value="{{pt}}">{{pt}}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+					<div class="form-group mb-10">
+						<label class="form-label">About Project</label>
+						<textarea rows="5" class="form-control" name="prop_about" id="prop_about" placeholder="About Project"></textarea>
+					</div>
+					<!-- <div class="row mb-10">
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Status</label>
+							<select class="form-control select2" name="prop_status" id="prop_status">
+								<option value="">select</option>
+								<option>Sell</option>
+								<option>Buy</option>
+							</select>
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Type</label>
+							<select class="form-control select2" name="prop_type" id="prop_type">
+								<option value="">select</option>
+								<option>Flat</option>
+								<option>Commercial</option>
+								<option>Apartment</option>
+								<option>Lot</option>
+								<option>Garage</option>
+							</select>
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Number of Rooms</label>
+							<select class="form-control select2" name="prop_rooms" id="prop_rooms">
+								<option value="">select</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+							</select>
+						</div>
+					</div> -->
+					<!-- <div class="row mb-10">
+						<div class="col-xl-6 col-12 form-group">
+							<label class="form-label">Price</label>
+							<input type="number" class="form-control" name="prop_price" id="prop_price" placeholder="Enter your property price">
+						</div>
+						<div class="col-xl-6 col-12 form-group">
+							<label class="form-label">Carpet Area&nbsp;<span class="text-secondary">(sqft)</span></label>
+							<input type="number" class="form-control" name="prop_carpet_area" id="prop_carpet_area" placeholder="Enter your property area in sqft">
+						</div>
+					</div> -->
+					<!-- <h4 class="box-title text-danger mb-0">Room Configuration</h4>
+					<hr class="my-15">
+					<div class="row mb-10">
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Configuration</label>
+							<select class="form-control select2" name="prop_rooms[]" id="prop_rooms">
+								<option value="">select</option>
+								<option>1 BHK</option>
+								<option>2 BHK</option>
+								<option>3 BHK</option>
+								<option>4 BHK</option>
+								<option>5 BHK</option>
+								<option>6 BHK</option>
+								<option>7 BHK</option>
+								<option>8 BHK</option>
+								<option>9 BHK</option>
+								<option>10 BHK</option>
+							</select>
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Carpet Area&nbsp;<span class="text-secondary">(sqft)</span></label>
+							<input type="number" class="form-control" name="prop_carpet_area[]" id="prop_carpet_area" placeholder="Enter your property area in sqft">
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Price</label>
+							<input type="number" class="form-control" name="prop_price[]" id="prop_price" placeholder="Enter your property price">
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Layout Blue Print</label>
+							<input type="file" class="form-control" name="blue_print[]" id="blue_print">
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Layout 3D Print</label>
+							<input type="file" class="form-control" name="3d_print[]" id="3d_print">
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label" style="display: block;">&nbsp;</label>
+							<button type="button" id="btnAdd" class="waves-effect waves-circle btn btn-social-icon btn-circle btn-info" title="Add Room Configuration"><span class="fa fa-plus"></span></a>
+						</div>
+					</div>
+					<div class="dynamic_config">
+					</div> -->
+					<h4 class="box-title text-danger mb-0">Property Location</h4>
+					<hr class="my-15">
+					<div class="row mb-10">
+						<div class="col-xl-6 col-12">
+							<div class="form-group">
+								<label class="form-label">Address</label>
+								<input type="text" class="form-control" name="prop_address" id="prop_address" placeholder="Enter Your Address">
+							</div>
+							<div class="form-group">
+								<label class="form-label">City</label>
+								<input type="text" class="form-control" name="prop_city" id="prop_city" placeholder="Enter Your City">
+							</div>
+							<div class="form-group">
+								<label class="form-label">Google Maps Latitude</label>
+								<input type="text" class="form-control" name="prop_latitude" id="prop_latitude" placeholder="Google Maps Latitude">
+							</div>
+						</div>
+						<div class="col-xl-6 col-12">
+							<div class="form-group">
+								<label class="form-label">Pin Code</label>
+								<input type="number" class="form-control" value="0" name="prop_pincode" id="prop_pincode" placeholder="Enter Your Pincode" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="6">
+							</div>
+							<div class="form-group">
+								<label class="form-label">State</label>
+								<input type="text" class="form-control" name="prop_state" id="prop_state" placeholder="Enter Your Address">
+							</div>
+							<input type="hidden" name="prop_country" value="India">
+							<!-- <div class="form-group">
+								<label class="form-label">Country</label>
+								<input type="text" class="form-control" name="prop_country" id="prop_country" placeholder="Enter Your Country">
+							</div> -->
+							<div class="form-group">
+								<label class="form-label">Google Maps Longitude</label>
+								<input type="text" class="form-control" name="prop_longitude" id="prop_longitude" placeholder="Google Maps Longitude">
+							</div>
+						</div>
+					</div>
+					<h4 class="box-title text-danger mb-0">Extra Information</h4>
+					<hr class="my-15">
+					<div class="row mb-10">
+						<div class="col-xl-12 col-12 form-group">
+							<label class="form-label">Building Status</label>
+							<!-- <select class="form-control select2" name="build_status" id="build_status">
+								<option value="">select</option>
+								<option value="Ready to Move">Ready to Move</option>
+								<option value="Under Construction">Under Construction</option>
+							</select> -->
+						</div>
+						<div class="col-xl-12 col-12 ready">
+							<div class="form-group">
+								<div class="checkbox checkbox-danger">
+									<input id="ready_to_move" name="ready_to_move" type="checkbox" value="Ready to Move">
+									<label for="ready_to_move"> Ready to Move</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-12 col-12 under">
+							<div class="form-group">
+								<div class="checkbox checkbox-danger">
+									<input id="under_construction" name="under_construction" type="checkbox" value="Under Construction">
+									<label for="under_construction"> Under Construction</label><br>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Building Age</label>
+							<input type="text" class="form-control" name="build_age" id="build_age" placeholder="Enter Builder Age"> -->
+							<!-- <select class="form-control select2" name="build_age" id="build_age">
+								<option value="">select</option>
+								<option>0-2 Years</option>
+								<option>3-5 Years</option>
+								<option>8-10 Years</option>
+								<option>11-15 Years</option>
+								<option>16-20 Years </option>
+							</select> -->
+						<!-- </div> -->
+						<!-- <div class="col-xl-4 col-12">
+							<label class="form-label">Bedrooms</label>
+							<select class="form-control select2" name="prop_bedroom" id="prop_bedroom">
+								<option value="">select</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+							</select>
+						</div>
+						<div class="col-xl-4 col-12">
+							<label class="form-label">Bathrooms</label>
+							<select class="form-control select2" name="prop_bathroom" id="prop_bathroom">
+								<option value="">select</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+							</select>
+						</div> -->
+						<!-- <div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Number of Wings</label>
+							<input type="number" class="form-control" name="build_wings" id="build_wings" placeholder="eg. 2">
+						</div>
+						<div class="col-xl-4 col-12 form-group">
+							<label class="form-label">Number of Floors</label>
+							<input type="number" class="form-control" name="build_floors" id="build_floors" placeholder="eg. 7">
+						</div> -->
+					</div>
+					<h4 class="box-title text-danger mb-0">Builder Information</h4>
+					<hr class="my-15">
+					<div class="row mb-10">
+						<div class="col-xl-6 col-12">
+							<div class="form-group">
+								<label class="form-label">Builder Name</label>
+								<input type="text" class="form-control" name="builder_name" id="builder_name" placeholder="Enter Builder Name">
+							</div>
+							<!-- <div class="form-group">
+								<label class="form-label">Possession Date</label>
+								<input type="month" placeholder="mm/yyyy" class="form-control" name="possesssion_date" id="possesssion_date" placeholder="Choose Possession Date">
+							</div> -->
+						</div>
+						<div class="col-xl-6 col-12">
+							<!-- <div class="form-group">
+								<label class="form-label">Project Name</label>
+								<input type="text" class="form-control" name="project_name" id="project_name" placeholder="Enter Project Name">
+							</div> -->
+							<div class="form-group"> 
+								<label class="form-label">MAHARERA Number</label>
+								<input type="text" class="form-control" name="maharera_number" id="maharera_number" placeholder="Enter MAHARERA Number">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer text-end">
+					<a href="property" class="btn btn-warning me-1">
+						<i class="fa fa-times"></i> Cancel
+					</a>
+					<button type="submit" name="btn_addProperty" id="btn_addProperty" class="btn btn-primary">
+						<i class="ti-save-alt"></i> Save
+					</button>
+				</div> 
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
+{% block extracontent %}{% endblock %}

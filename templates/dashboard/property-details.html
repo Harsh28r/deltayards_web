@@ -1,0 +1,186 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Property Details Page"}}{% endblock %}
+
+{% block cntrl %}{% endblock %}
+{% block cntrl-id %}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Property Details"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}{% endblock %}
+
+{% block content %}
+{%for pd in prop_data %}
+<div class="row">
+	<div class="col-lg-4 col-xlg-3 col-md-5">
+		<div class="box">
+			<div class="box-body">
+				<div class="zoom-gallery m-t-30">
+					{% for im in images %}
+					<a href="media/{{im.url}}" title="{{pd.project_name}}">
+						<img src="media/{{im.url}}" width="32.5%" alt="" style="margin-bottom: 3%;"/>
+					</a>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="row text-center mt-10">
+					<div class="col-md-6 border-end">
+						<strong>Project Name</strong>
+						<p>{{pd.project_name}}</p>
+					</div>
+					<div class="col-md-6"><strong>Property Type</strong>
+						<p>{{pd.prop_type}}</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row text-center mt-10">
+					<div class="col-md-6 border-end"><strong>Property Status</strong>
+						<p>{{pd.build_status}}</p>
+					</div>
+					<div class="col-md-6"><strong>Possession Date</strong>
+						<p>{{pd.possesssion_date}}</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row text-center mt-10">
+					<div class="col-md-12"><strong>Address</strong>
+						<p>{{pd.prop_address}}, {{pd.prop_city}}, <br/>{{pd.prop_state}}, {{pd.prop_country}}</p>
+					</div>
+				</div>
+				{% if pd.prop_longitude > 0 %}
+				<hr>
+				<br>
+				<div class="row mt-15">
+					<div class="col-md-12 col-sm-12 text-center">
+						<iframe 
+                            width="100%" 
+                            height="320" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            marginheight="0" 
+                            marginwidth="0" , 
+                            src="https://maps.google.com/maps?q=+{{pd.prop_longitude}}+,+{{pd.prop_latitude}}+&hl=en&z=14&amp;output=embed"
+                            ></iframe>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8 col-xlg-9 col-md-7">
+		<div class="box">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-2 col-xs-6 border-end"> <strong>Builder Name</strong>
+						<br>
+						<p class="text-muted">{{pd.builder_name}}</p>
+					</div>
+					<div class="col-md-2 col-xs-6 border-end"> <strong>Year Built</strong>
+						<br>
+						<p class="text-muted">{{pd.build_age}} yrs</p>
+					</div>
+					<div class="col-md-2 col-xs-6 border-end"> <strong>Wing(s)</strong>
+						<br>
+						<p class="text-muted">{{pd.build_wings}}</p>
+					</div>
+					<div class="col-md-2 col-xs-6 border-end"> <strong>Floors</strong>
+						<br>
+						<p class="text-muted">{{pd.build_floors}}</p>
+					</div>
+					<div class="col-md-2 col-xs-6 border-end"> <strong>MahaRERA No</strong>
+						<br>
+						<p class="text-muted">{{pd.maharera_number}}</p>
+					</div>
+					<div class="col-md-2 col-xs-6"> <strong>Project Land</strong>
+						<br>
+						<p class="text-muted">{{pd.project_land_parcel}} yrs</p>
+					</div>
+				</div>
+				<hr>
+				{% if pd.prop_about != '' %}
+				<p class="mt-30">{{pd.prop_about}}</p>
+				{% endif %}
+				{% if rooms|length > 0 %}
+				<h4 class="box-title fw-500 py-20 border-bottom d-block">Room Configuration</h4>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table-responsive table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="pl-2">Rooms</th>
+                                    <th class="p-0">Carpet Area</th>
+                                    <th>Price</th>
+                                    <th class="text-center">Blue Print</th>
+                                    <th class="text-center">3D Print</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for rm in rooms %}
+                                <tr>
+                                    <td>{{rm.prop_rooms}}</td>
+                                    <td>{{rm.prop_carpet_area}} Sqft.</td>
+                                    <td>₹ {{rm.prop_price}}</td>
+                                    <td class="image myelist">
+                                        <a class="image-popup-no-margins" href="media/{{rm.blue_print}}" target="_blank"><img alt="{{rm.prop_rooms}}" src="media/{{rm.blue_print}}" class="img-fluid" style="width:150px"></a>
+                                    </td>
+                                    <td class="image myelist">
+                                        <a class="image-popup-no-margins" href="media/{{rm.threed_print}}" target="_blank"><img alt="{{rm.prop_rooms}}" src="media/{{rm.threed_print}}" class="img-fluid" style="width:150px"></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+					</div>
+				</div>
+				{% endif %}
+				{% if floors|length > 0 %}
+				<h4 class="box-title fw-500 py-20 border-bottom d-block">Floor Plans</h4>
+				<div class="row">
+					{% for fl in floors %}
+					<div class="col-md-3">
+						<a class="image-popup-no-margins" href="media/{{fl.url}}" target="_blank"><img alt="#" src="media/{{fl.url}}" class="img-fluid"></a>
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+				{% if amenity|length > 0 %}
+				<h4 class="box-title my-20 fw-500 py-20 border-bottom d-block">Amenities</h4>
+				{% for i in amenity %}
+				<div class="d-flex no-block fa fa-check-circle text-success">
+					<h6 class="ms-10 text-dark">{{i.amen}}</h6>
+				</div>
+				{% endfor %}
+				{% endif %}
+				{% if features|length > 0 %}
+				<h4 class="box-title my-20 fw-500 py-20 border-bottom d-block">Features</h4>
+				{% for i in features %}
+				<div class="d-flex no-block fa fa-check-circle text-success">
+					<h6 class="ms-10 text-dark">{{i.feature}}</h6>
+				</div>
+				{% endfor %}
+				{% endif %}
+				{% if places|length > 0 %}
+				<h4 class="box-title my-20 fw-500 py-20 border-bottom d-block">What's Nearby</h4>
+				{% for pl in places %}
+				<div class="d-flex no-block fa fa-check-circle text-success">
+					<h6 class="ms-10 text-dark">{{pl.place}}</h6> => 
+					<p>{{pl.desc}}</p>
+				</div>
+				{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block extracontent %}{% endblock %}
+
+{% block extrascripts %}
+<script src="{% static 'dashboard/assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js' %}"></script>
+{% endblock %}

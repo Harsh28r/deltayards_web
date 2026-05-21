@@ -1,0 +1,99 @@
+{% extends 'frontend/base.html'%}
+{% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'frontend/slider/css/layerslider.css' %}">
+<link rel="stylesheet" href="{% static ' frontend/slider/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'frontend/css/home.css' %}">
+<style>
+    .center{
+        text-align: center;
+    }
+    .pd-b{
+        margin-bottom: 20px;
+    }
+    h5
+    {
+        font-size: 24px !important;
+        text-transform: uppercase;
+    }
+</style>
+{% endblock %}
+{% block content%}
+<div class="page-banner-simple bg-secondary py-40  pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="banner-title text-white">Services</h3>
+                <span class="banner-tagline font-medium text-white">We make strategies, design & development to create valuable products.</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="full-row bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-5">
+                <h3 class="mb-4 text-center w-50 w-sm-100 mx-auto">Corporate Services For Our Honourable Customer</h3>
+                <!-- <span class="text-secondary w-75 d-table text-center w-sm-100 mx-auto pb-4">Molestie accumsan ipsum condimentum curabitur euismod tempor aptent nullam aliquet phasellus. Lobortis felis tortor curae mi semper porta pellentesque.</span> -->
+            </div>
+        </div>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1">
+            <div class="col mb-5">
+                <div class="property-grid-5 property-block bg-white transation-this hover-shadow">
+                    <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                        <a href="#"><img src="media/services/Retail.jpg" alt="Services"></a>
+                    </div>
+                    <div class="property_text p-4">
+                        <h5 class="listing-title"><a href="#">Retail Engagement</a></h5>
+                        <span class="listing-location" style="text-align: justify;">A vertical where we serve all customers at different locations by partnering with established developers in the city. We have a team of experienced professionals who are knowledgeable about the different neighborhoods in the city and can help you find the perfect property.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="property-grid-5 property-block bg-white transation-this hover-shadow">
+                    <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                        <a href="#"><img src="media/services/Exclusive-Project-Marketing.jpg" alt="Services"></a>
+                    </div>
+                    <div class="property_text p-4">
+                        <h5 class="listing-title"><a href="#">Exclusive Project Marketing Program</a></h5>
+                        <span class="listing-location" style="text-align: justify;">We work with developers to create a sales and marketing strategy that will reach the right buyers and get them interested in the project. We also provide guidance and support throughout the process, from start to finish. This way, the developers can focus on what they do best - creating a great product - and leave the rest to us.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="property-grid-5 property-block bg-white transation-this hover-shadow">
+                    <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                        <a href="#"><img src="media/services/Land-Sourcing.jpg" alt="Services"></a>
+                    </div>
+                    <div class="property_text p-4">
+                        <h5 class="listing-title"><a href="#">Land Sourcing Vertical</a></h5>
+                        <span class="listing-location" style="text-align: justify;">We provide a hassle-free process and guidance so that our clients can make informed decisions. We have a team of experts who are well-versed in the real estate market and can provide insights on the best land options available. We also offer competitive rates and flexible payment terms to suit our clients' needs.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="property-grid-5 property-block bg-white transation-this hover-shadow">
+                    <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                        <a href="#"><img src="media/services/Loan.jpg" alt="Services"></a>
+                    </div>
+                    <div class="property_text p-4">
+                        <h5 class="listing-title"><a href="#">Loan and Insurance Vertical</a></h5>
+                        <span class="listing-location" style="text-align: justify;">We have a team of experts who are always available to help our clients with any questions or concerns they may have throughout the loan and property insurance process. We are here to help our clients every step of the way, from the initial consultation to the final closing. We want our clients to be as informed and comfortable as possible throughout the entire process, and we will do everything we can to help them achieve that.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="property-grid-5 property-block bg-white transation-this hover-shadow">
+                    <div class="overflow-hidden position-relative transation thumbnail-img bg-secondary hover-img-zoom">
+                        <a href="#"><img src="media/services/Interior-Design.jpg" alt="Services"></a>
+                    </div>
+                    <div class="property_text p-4">
+                        <h5 class="listing-title"><a href="#">Home Automation and Interior Services</a></h5>
+                        <span class="listing-location" style="text-align: justify;">If you're looking for a way to enhance your living experience, consider home automation and interiors assistance. With these services, you can automate your home to make life easier and more convenient. You can also get help with interior design and decorating to make your home more stylish and inviting. Whether you want to make your life simpler or more luxurious, home automation and interiors assistance can help you achieve your goals.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

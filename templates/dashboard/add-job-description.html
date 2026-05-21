@@ -1,0 +1,51 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Add Job Description"}}{% endblock %}
+
+{% block cntrl %}ng-controller="JobDescriptionController"{% endblock %}
+{% block cntrl-id %}{{"JobDescriptionController"}}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Add Job Description"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}
+<a href="Job-Description" class="waves-effect waves-light btn btn-link text-primary mb-5 pull-right"><i class="fa fa-building"></i> Job Description List</a>
+{% endblock %}
+
+{% block content %}
+<form action="#" name="frm_addJobDescription" id="frm_addJobDescription" method="post">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-xl-12 col-12">
+			<div class="box bx box-shadowed">
+				<div class="box-body prop-body">
+					<h4 class="box-title text-danger mb-0">Add Job Description</h4>
+					<hr class="my-15">
+					<div class="row">
+						<div class="form-group">
+							<label class="form-label">Job Title<span class="error">*</span></label>
+							<input type="text" class="form-control" name="job_title" id="job_title" placeholder="Enter Job Title" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label class="form-label">Job Description<span class="error">*</span></label>
+							<textarea rows="5" class="form-control" name="job_description" id="job_description" placeholder="Enter Job Description" required></textarea>
+						</div>
+					</div>
+                </div>
+				<div class="box-footer text-end">
+					<a href="Job-Description" class="btn btn-warning me-1">
+						<i class="fa fa-times"></i> Cancel
+					</a>
+					<button type="submit" name="btn_addjobDesc" id="btn_addjobDesc" class="btn btn-primary">
+						<i class="ti-save-alt"></i> Save
+					</button>
+				</div> 
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
+{% block extracontent %}{% endblock %}

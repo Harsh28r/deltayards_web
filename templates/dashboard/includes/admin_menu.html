@@ -1,0 +1,76 @@
+<nav class="main-nav" role="navigation">
+  <!-- Mobile menu toggle button (hamburger/x icon) -->
+  <input id="main-menu-state" type="checkbox" />
+  <label class="main-menu-btn" for="main-menu-state">
+	<span class="main-menu-btn-icon"></span> Toggle main menu visibility
+  </label>
+  <!-- Sample menu definition -->
+  <ul id="main-menu" class="sm sm-blue"> 
+	<li><a href="admin_panel"><i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>Dashboard</a></li>
+	{% if request.session.role == 1 or request.session.role == 2  %}
+	<li><a href="#"><i class="icon-Selected-file"><span class="path1"></span><span class="path2"></span></i>Master</a>
+		<ul> 
+			<li><a href="employee"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Employee</a></li>
+			<!-- <li><a href="bank"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Bank</a></li> -->
+		</ul>
+	</li>
+	<li><a href="#"><i class="icon-Building"><span class="path1"></span><span class="path2"></span></i>Property</a>
+		<ul> 
+			<li><a href="add-property"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add New Property</a></li>
+			<li><a href="property"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Property List</a></li>
+		</ul>
+	</li>
+	<li><a href="#"><i class="icon-Library"><span class="path1"></span><span class="path2"></span></i>Reports</a>
+		<ul> 
+			<!-- <li><a href="lead-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Lead Report</a></li> -->
+			<li><a href="web-contact-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Web Contact Enquiries</a></li>
+			<!-- <li><a href="web-home-loan-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Web Home Loan Enquiries</a></li> -->
+			<li><a href="web-property-enquiry-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Web Property Enquiries</a></li>
+			<!-- <li><a href="web-site-visit-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Web Site Visit Enquiries</a></li> -->
+			<!-- <li><a href="web-request-callback-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Web Request Callback Enquiries</a></li> -->
+		</ul>
+	</li>
+	<li><a href="#"><i class="icon-Library"><span class="path1"></span><span class="path2"></span></i>Career</a>
+		<ul>
+			<li><a href="Add-Job-Description"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add Job Description</a></li>
+			<li><a href="Job-Description"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Job Description</a></li>
+			<li><a href="Job-Application-Report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Job Application Report</a></li>
+		</ul>
+	</li>
+	<!-- <li><a href="#"><i class="icon-User"><span class="path1"></span><span class="path2"></span></i>Broker</a>
+		<ul> 
+			<li><a href="web-user-report?user_type=Broker"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>User List</a></li>
+			<li><a href="web-user-login-report?user_type=Broker"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Login Report</a></li>
+			<li><a href="resale-property-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Property List</a></li>
+			<li><a href="resale-client-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Client List</a></li>
+		</ul>
+	</li>
+	<li><a href="#"><i class="icon-User"><span class="path1"></span><span class="path2"></span></i>Customer</a>
+		<ul> 
+			<li><a href="web-user-report?user_type=Customer"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>User List</a></li>
+			<li><a href="web-user-login-report?user_type=Customer"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Login Report</a></li>
+			<li><a href="cust-resale-property-report"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Property List</a></li>
+		</ul>
+	</li> -->
+	<!-- <li>
+		<a href="notification"><i class="icon-Notifications"><span class="path1"></span><span class="path2"></span></i>Notification</a>
+	</li> -->
+	{% endif %}
+	{% if request.session.role == 3 %}
+	<li><a href="#"><i class="icon-Library"><span class="path1"></span><span class="path2"></span></i>Tele Caller</a>
+		<ul> 
+			<li><a href="lead"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Lead</a></li>
+		</ul>
+	</li>
+	{% endif %}
+	{% if request.session.role == 4 %}
+	<li><a href="#"><i class="icon-Library"><span class="path1"></span><span class="path2"></span></i>Sales Manager</a>
+		<ul> 
+			<li><a href="assignedLead"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Assigned Lead</a></li>
+			<li><a href="lead"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Lead</a></li>
+		</ul>
+	</li>
+	{% endif %}
+	<li><a href="profile"><i class="icon-User"><span class="path1"></span><span class="path2"></span></i>Profile</a></li>
+  </ul>
+</nav>

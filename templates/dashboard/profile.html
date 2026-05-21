@@ -1,0 +1,134 @@
+{% extends "dashboard/includes/base.html" %}
+
+{% load static %}
+
+{% block site_title %}{{"Profile Page"}}{% endblock %}
+
+{% block cntrl %}{% block cntrl-id %}{% endblock %}{% endblock %}
+
+{% block page_title %}{% block menu_title %}{{"Profile"}}{% endblock %}{% endblock %}
+
+{% block extra_buttons %}{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12 col-lg-7 col-xl-8">
+		<div class="nav-tabs-custom">
+			<ul class="nav nav-tabs">
+				<li><a class="active" href="#profile" data-bs-toggle="tab">Profile</a></li>
+				<li><a href="#change-password" data-bs-toggle="tab">Change Password</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="active tab-pane" id="profile">
+					<form method="post" class="form-horizontal" action="#" id="frm_updateProfile" name="frm_updateProfile" enctype="multipart/form-data">
+					<div class="box">
+						<div class="box-header with-border">
+							<h4 class="box-title">User Info</h4>
+						</div>
+						<div class="box-body">
+							<div class="row">
+								<div class="col">
+									<div class="row">
+										{% csrf_token %}
+										<input type="hidden" name="emp_id" value="{{list.emp_id}}">
+										<input type="hidden" name="role_id" value="{{list.role_id}}">
+										<div class="col-6">						
+											<div class="form-group">
+												<h5>Full Name <span class="text-danger">*</span></h5>
+												<div class="controls">
+													<input type="text" name="emp_name" value="{{list.emp_name}}" class="form-control" required> 
+												</div>
+											</div>
+										</div>
+										<div class="col-6">						
+											<div class="form-group">
+												<h5>Email <span class="text-danger">*</span></h5>
+												<div class="controls">
+													<input type="email" name="email" value="{{list.email}}" class="form-control" required> 
+												</div>
+											</div>
+										</div>
+										<div class="col-6">						
+											<div class="form-group">
+												<h5>Phone <span class="text-danger">*</span></h5>
+												<div class="controls">
+													<input type="text" name="emp_mob" value="{{list.emp_mob}}" class="form-control" readonly> 
+												</div>
+											</div>
+										</div>
+										<div class="col-6">						
+											<div class="form-group">
+												<h5>Logo <a href="media/{{list.profile_img}}" target="_blank">View Logo</a></h5>
+												<div class="controls">
+													<input type="file" name="profile_img" class="form-control"> 
+													<input type="hidden" name="old_profile_img" value="{{list.profile_img}}">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="text-xs-center text-center">
+								<button type="submit" id="btn_updateProfile" name="btn_updateEmployee" class="waves-effect waves-light btn btn-success mb-5"><i class="fa fa-floppy-o"></i> Update</button>
+							</div>
+						</div>
+					</div>
+					</form>
+				</div>    
+				<div class="tab-pane" id="change-password">	
+					<form method="post" class="form-horizontal form-element col-12" action="#" id="frm_changePassword" name="frm_changePassword" enctype="multipart/form-data">
+						{% csrf_token %}
+						<input type="hidden" name="emp_id" value="{{list.emp_id}}">
+						<div class="form-group row">
+							<label for="inputName" class="col-sm-2 control-label">New Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="act_pass" name="change_pass" placeholder="">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="inputName" class="col-sm-2 control-label">Confirm Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="conf_pass" name="emp_pass" placeholder="">
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-12">
+								<input class="form-check-input" type="checkbox" value="" id="reveal"/>
+								<label class="form-check-label" for="reveal">Show Password</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<button type="submit" id="btn_changePassword" name="btn_changeEmpPass" class="waves-effect waves-light btn btn-success mb-5"><i class="fa fa-lock"></i> Change Password</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-lg-5 col-xl-4">
+		<div class="box box-widget widget-user">
+			<div class="widget-user-header" style="height:auto;">
+				<h3 class="widget-user-username">{{list.emp_name}}</h3>
+				<h6 class="widget-user-desc">{{list.role_name}}</h6>
+			</div>
+			<div class="text-center">
+				<img width="200px;" src="media/{{list.profile_img}}" alt="{{list.full_name}}">
+			</div>
+			<div class="box-footer">
+				<div class="row">
+					<div class="col-12">
+						<div>
+							<p>Email : <span class="text-gray pl-10">{{list.email}}</span> </p>
+							<p>Phone : <span class="text-gray pl-10">{{list.emp_mob}}</span></p>
+							<p>Last visit : <span class="text-gray pl-10">{{list.last_visit}}</span></p>
+							<p>Registration : <span class="text-gray pl-10">{{list.register_date}}</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extracontent %}{% endblock %}
